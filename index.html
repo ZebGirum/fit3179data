@@ -1,73 +1,226 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Australia Trade Visualizations</title>
     <style>
         body {
-          background-color: #87CEEB; /* Sky blue color */
+            background-color: #87CEEB; /* Sky blue color */
+            font-family: Arial, sans-serif;
+        }
+        #vis {
+            width: 800px;
+            height: 400px;
+            margin: 20px auto;
+        }
+        #scatter {
+            width: 500px;
+            height: 400px;
+            margin: 20px auto;
         }
     </style>
-  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.8"></script>
 </head>
 <body>
-  <div id="vis"/>
-  <script>
-    const spec ={
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Australia Exports",
-    "width": 800,
-    "height": 400,
-    "background": "#87CEEB",  
-    "projection": {"type": "equalEarth"},
-    "data": {
-      "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
-      "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
-    },
-    "transform": [
-      {
-        "lookup": "properties.NAME",
-        "from": {
-          "data": {
-            "url": "https://raw.githubusercontent.com/ZebGirum/fit3179data/main/WITS-Partner.csv"
-          },
-          "key": "Partner Name",
-          "fields": ["Export (US$ Thousand)"]
-        },
-        "as": ["Export (US$ Thousand)"],
-        "default": 0
-      },
-      {
-       
-        "calculate": "datum['Export (US$ Thousand)']",
-        "as": "Original Export Value"
-      },
-      {
-        
-        "calculate": "datum['Original Export Value'] + 0.1",
-        "as": "Non Export Value"
-      },
-      {
 
-        "calculate": "isValid(datum['Original Export Value']) ? datum['Original Export Value'] : datum['Non Export Value']",
-        "as": "Export (US$ Thousand)"
-      }
-    ],
-    "mark": {"type": "geoshape"},
-    "encoding": {
-      "color": {
-        "field": "Export (US$ Thousand)",
-        "type": "quantitative",
-        "scale": {"type": "log"}
-        
-      },
-      "tooltip": [
-        {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-        {"field": "Export (US$ Thousand)", "type": "quantitative"}
-      ]
-    }
-  };
-    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
-  </script>
+    <h1 style="text-align: center;">Australia Trade Visualizations</h1>
+
+    <div id="vis"></div>
+    <div id="scatter"></div>
+
+    <script>
+        // Choropleth map for Australia Exports
+        const mapSpec = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "title": "Australia Exports",
+            "width": 800,
+            "height": 400,
+            "background": "#87CEEB",
+            "projection": {"type": "equalEarth"},
+            "data": {
+                "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+                "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+            },
+            "transform": [
+                {
+                    "lookup": "properties.NAME",
+                    "from": {
+                        "data": {
+                            "url": "https://raw.githubusercontent.com/ZebGirum/fit3179data/main/WITS-Partner.csv"
+                        },
+                        "key": "Partner Name",
+                        "fields": ["Export (US$ Thousand)"]
+                    },
+                    "as": ["Export (US$ Thousand)"],
+                    "default": 0
+                },
+                {
+                    "calculate": "datum['Export (US$ Thousand)']",
+                    "as": "Original Export Value"
+                },
+                {
+                    "calculate": "datum['Original Export Value'] + 0.1",
+                    "as": "Non Export Value"
+                },
+                {
+                    "calculate": "isValid(datum['Original Export Value']) ? datum['Original Export Value'] : datum['Non Export Value']",
+                    "as": "Export (US$ Thousand)"
+                }
+            ],
+            "mark": {"type": "geoshape"},
+            "encoding": {
+                "color": {
+                    "field": "Export (US$ Thousand)",
+                    "type": "quantitative",
+                    "scale": {"type": "log"}
+                },
+                "tooltip": [
+                    {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+                    {"field": "Export (US$ Thousand)", "type": "quantitative"}
+                ]
+            }
+        };
+
+        // Scatter plot for Imports, Exports and Tariffs
+        const scatterSpec = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "width": 500,
+            "height": 400,
+            "title": "Imports, Exports and Tariffs",
+            "data": {
+                "url": "https://raw.githubusercontent.com/ZebGirum/fit3179data/main/WITS-Partner_countriescsv.csv"
+            },
+            "params": [
+                {
+                    "name": "Continent_selection",
+                    "bind": {
+                        "input": "select",
+                        "options": [
+                            null,
+                            "North America",
+                            "South America",
+                            "Europe",
+                            "Africa",
+                            "Asia",
+                            "Oceania"
+                        ],
+                        "labels": [
+                            "Show All",
+                            "North America",
+                            "South America",
+                            "Europe",
+                            "Africa",
+                            "Asia",
+                            "Oceania"
+                        ],
+                        "name": "Continent Selection: "
+                    }
+                }
+            ],
+            "transform": [
+                {
+                    "filter": "Continent_selection == null || datum.continent == Continent_selection"
+                }
+            ],
+            "layer": [
+                {
+                    "mark": "circle",
+                    "encoding": {
+                        "x": {
+                            "field": "Export (US$ Thousand)",
+                            "type": "quantitative",
+                            "title": "Exports",
+                            "axis": {"tickCount": 7},
+                            "scale": {"type": "log", "domain": [1, 1000000000]}
+                        },
+                        "y": {
+                            "field": "Import (US$ Thousand)",
+                            "type": "quantitative",
+                            "title": "Imports",
+                            "axis": {"tickCount": 7},
+                            "scale": {"type": "log", "domain": [1, 1000000000]}
+                        },
+                        "color": {
+                            "field": "continent",
+                            "type": "nominal",
+                            "scale": {
+                                "domain": [
+                                    "North America",
+                                    "South America",
+                                    "Europe",
+                                    "Africa",
+                                    "Asia",
+                                    "Oceania"
+                                ],
+                                "range": [
+                                    "#e41a1c",
+                                    "#984ea3",
+                                    "#ff7f00",
+                                    "#a6cee3",
+                                    "#377eb8",
+                                    "#a65628"
+                                ]
+                            }
+                        },
+                        "opacity": { "value": 0.5 },
+                        "size": {
+                            "field": "AHS Total Tariff Lines",
+                            "type": "quantitative",
+                            "scale": {
+                                "type": "threshold",
+                                "domain": [100, 1000, 5000, 10000, 50000],
+                                "range": [10, 50, 150, 200, 300, 400]
+                            },
+                            "legend": {"format": ".1s"}
+                        },
+                        "tooltip": [
+                            {"field": "Partner Name", "type": "nominal"},
+                            {"field": "Export (US$ Thousand)", "type": "quantitative", "format": ","},
+                            {"field": "Import (US$ Thousand)", "type": "quantitative", "format": ","},
+                            {"field": "AHS Total Tariff Lines", "type": "quantitative", "format": ","},
+                            {"field": "continent", "type": "nominal"}
+                        ]
+                    }
+                },
+                {
+                    "mark": {
+                        "type": "text",
+                        "align": "right",
+                        "baseline": "middle",
+                        "dx": -12,
+                        "fontSize": 11.5,
+                        "fontStyle": "italic"
+                    },
+                    "encoding": {
+                        "text": {"field": "Partner Name", "type": "nominal"},
+                        "color": {"value": "black"},
+                        "opacity": {
+                            "condition": {
+                                "test": "datum['Partner Name'] == 'China' || datum['Partner Name'] == 'South Africa' || datum['Partner Name'] == 'New Zealand' || datum['Partner Name'] == 'Germany' || datum['Partner Name'] == 'Brazil' || datum['Partner Name'] == 'United States of America'",
+                                "value": 1
+                            },
+                            "value": 0
+                        },
+                        "x": {
+                            "field": "Export (US$ Thousand)",
+                            "type": "quantitative"
+                        },
+                        "y": {
+                            "field": "Import (US$ Thousand)",
+                            "type": "quantitative"
+                        }
+                    }
+                }
+            ]
+        };
+
+        // Render the map and scatter plot
+        vegaEmbed("#vis", mapSpec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+        vegaEmbed("#scatter", scatterSpec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+    </script>
+
 </body>
 </html>
