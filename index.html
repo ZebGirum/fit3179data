@@ -9,13 +9,8 @@
             background-color: #87CEEB; /* Sky blue color */
             font-family: Arial, sans-serif;
         }
-        #vis {
+        #vis, #scatter, #line, #area, #bar {
             width: 800px;
-            height: 400px;
-            margin: 20px auto;
-        }
-        #scatter {
-            width: 500px;
             height: 400px;
             margin: 20px auto;
         }
@@ -28,8 +23,26 @@
 
     <h1 style="text-align: center;">Australia Trade Visualizations</h1>
 
+    <h2>Australia World Exports</h2>
+    <p>This map visualizes Australia's exports to various countries around the world, showcasing the economic relationships and trade patterns.</p>
     <div id="vis"></div>
+
+    <h2>Tariffs and Trade</h2>
+    <p>This bubble chart illustrates the relationship between tariffs and trade volume for various countries, highlighting the impact of tariff levels on trade flows.</p>
     <div id="scatter"></div>
+
+    <h2>Balance of Trade</h2>
+    <p>The line chart below presents the balance of trade for Australia over the years, reflecting the difference between exports and imports.</p>
+    <div id="line"></div> <!-- Line chart -->
+
+    <h2>Top Trading Industries</h2>
+    <p>This area chart displays the contributions of various industries to Australia's trade, indicating which sectors are the most significant in terms of exports and imports.</p>
+    <div id="area"></div> <!-- Area chart -->
+
+    <h2>Top Trading States</h2>
+    <p>The bar chart illustrates the top trading states within Australia, showing how different regions contribute to the overall trade balance.</p>
+    <div id="bar"></div> <!-- Bar chart -->
+
 
     <script>
         // Choropleth map for Australia Exports
@@ -87,7 +100,7 @@
         // Scatter plot for Imports, Exports and Tariffs
         const scatterSpec = {
             "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "width": 500,
+            "width": 600,
             "height": 400,
             "title": "Imports, Exports and Tariffs",
             "data": {
@@ -217,10 +230,93 @@
             ]
         };
 
-        // Render the map and scatter plot
-        vegaEmbed("#vis", mapSpec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
-        vegaEmbed("#scatter", scatterSpec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
-    </script>
+        // Line chart
+        const lineSpec = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 400,
+    "data": {
+      "url": "https://raw.githubusercontent.com/ZebGirum/fit3179data/main/Balance_on_trade_in_services.csv"
+    },
+    "layer": [
+      {
+        "mark": {"type": "line", "tooltip": true}, 
+        "encoding": {
+          "x": {
+            "field": "Year",
+            "type": "temporal",
+            "axis": {
+              "grid": false,
+              "tickCount": "year"  
+            }
+          },
+          "y": {
+            "field": "Balance",
+            "type": "quantitative",
+            
+            "axis": {
+              "grid": true
+            }
+          },
+          "tooltip": [
+            {"field": "Year", "type": "temporal", "title": "Year"},
+            {"field": "Balance", "type": "quantitative", "title": "Balance ($m)"}
+          ]
+        }
+      },
+      {
+        "mark": "rule",
+        "encoding": {
+          "y": {"value": 75},  
+          "color": {"value": "red"},  
+          "size": {"value": 0.1}  
+        }
+      }
+    ]
+  };
 
+        // Area chart for Trade Balance
+        const areaSpec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500,
+  "height": 400,
+  "data": {"url": "https://raw.githubusercontent.com/ZebGirum/fit3179data/main/transformed-data.csv"},
+  "mark": "area",
+  "encoding": {
+    "x": {
+      "timeUnit": "yearmonth", "field": "year",
+      "axis": {"format": "%Y"}
+    },
+    "y": {
+      "aggregate": "sum", "field": "value"
+    },
+    "color": {
+      "field": "Row Labels",
+      "scale": {"scheme": "category20b"}
+    }
+  }
+};
+
+        // Bar chart for Trade by Year
+        const barSpec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 400,
+  "data": {"url": "https://raw.githubusercontent.com/ZebGirum/fit3179data/main/transformed_state_exports_data.csv"},
+  "mark": "bar",
+  "encoding": {
+    "x": {"aggregate": "sum", "field": "value"},
+    "y": {"field": "Year"},
+    "color": {"field": "State"}
+  }
+};
+
+        
+        vegaEmbed('#vis', mapSpec);
+        vegaEmbed('#scatter', scatterSpec);
+        vegaEmbed('#line', lineSpec);
+        vegaEmbed('#area', areaSpec);
+        vegaEmbed('#bar', barSpec);
+    </script>
 </body>
 </html>
