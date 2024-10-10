@@ -6,14 +6,71 @@
     <title>Australia Trade Visualizations</title>
     <style>
         body {
-            background-color: #87CEEB; /* Sky blue color */
+            background-color: #e6eaec; /* Light blue color */
             font-family: Arial, sans-serif;
         }
+
+        /* Chart dimensions */
         #vis, #scatter, #line, #area, #bar {
             width: 800px;
             height: 400px;
             margin: 20px auto;
         }
+
+        /* Header animation */
+        .header {
+            white-space: nowrap;
+            overflow: hidden;
+            /*border-bottom: 5px solid rgb(0, 0, 0);*/
+            color: rgb(87, 88, 87);
+            opacity: 0; /* Initially hidden */
+            width: 0;   /* Initially no width */
+            transition: all 1s ease-out; /* Smooth animation */
+            text-align: center;
+        }
+
+        /* Paragraph animation */
+        .paragraph {
+            opacity: 0; /* Initially hidden */
+            transform: translateY(20px); /* Initially moved down */
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        /* When the header is in view, apply the animation */
+        .header.animate {
+            opacity: 1; /* Make visible */
+            width: 100%; /* Full width */
+        }
+
+        /* When the paragraph is in view (with delay), animate */
+        .paragraph.animate {
+            opacity: 1; /* Make visible */
+            transform: translateY(0); /* Move to original position */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 50px; /* Adds space below the title */
+            padding: 20px; /* Adds padding around the title */
+            /* Optional: background color for visibility */
+            border-radius: 10px; /* Optional: rounded corners */
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 50px; /* Adds space below the title */
+            padding: 20px; /* Adds padding around the title */
+            background-color: #f0f0f0; /* Optional: background color for visibility */
+            border-radius: 10px; /* Optional: rounded corners */
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 50px; /* Adds space below the title */
+            padding: 20px; /* Adds padding around the title */
+            background-color: #dddada; /* Optional: background color for visibility */
+            border-radius: 10px; /* Optional: rounded corners */
+        }
+
     </style>
     <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
@@ -23,25 +80,57 @@
 
     <h1 style="text-align: center;">Australia Trade Visualizations</h1>
 
-    <h2>Australia World Exports</h2>
-    <p>This map visualizes Australia's exports to various countries around the world, showcasing the economic relationships and trade patterns.</p>
+    <h2 class="header">Australia World Exports</h2>
+    <p class="paragraph">This map visualizes Australia's exports to various countries around the world, showcasing the economic relationships and trade patterns.</p>
     <div id="vis"></div>
 
-    <h2>Tariffs and Trade</h2>
-    <p>This bubble chart illustrates the relationship between tariffs and trade volume for various countries, highlighting the impact of tariff levels on trade flows.</p>
+    <h2 class="header">Tariffs and Trade</h2>
+    <p class="paragraph">This bubble chart illustrates the relationship between tariffs and trade volume for various countries, highlighting the impact of tariff levels on trade flows.</p>
     <div id="scatter"></div>
 
-    <h2>Balance of Trade</h2>
-    <p>The line chart below presents the balance of trade for Australia over the years, reflecting the difference between exports and imports.</p>
+    <h2 class="header">Balance of Trade</h2>
+    <p class="paragraph">The line chart below presents the balance of trade for Australia over the years, reflecting the difference between exports and imports.</p>
     <div id="line"></div> <!-- Line chart -->
 
-    <h2>Top Trading Industries</h2>
-    <p>This area chart displays the contributions of various industries to Australia's trade, indicating which sectors are the most significant in terms of exports and imports.</p>
+    <h2 class="header">Top Trading Industries</h2>
+    <p class="paragraph">This area chart displays the contributions of various industries to Australia's trade, indicating which sectors are the most significant in terms of exports and imports.</p>
     <div id="area"></div> <!-- Area chart -->
 
-    <h2>Top Trading States</h2>
-    <p>The bar chart illustrates the top trading states within Australia, showing how different regions contribute to the overall trade balance.</p>
+    <h2 class="header">Top Trading States</h2>
+    <p class="paragraph">The bar chart illustrates the top trading states within Australia, showing how different regions contribute to the overall trade balance.</p>
     <div id="bar"></div> <!-- Bar chart -->
+
+    <script>
+        // Function to handle intersection of headers and paragraphs
+        function observeHeadersAndParagraphs() {
+            const headers = document.querySelectorAll('.header');
+            const paragraphs = document.querySelectorAll('.paragraph');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Animate the header
+                        entry.target.classList.add('animate');
+
+                        // Get the corresponding paragraph and animate it with delay
+                        const paragraph = entry.target.nextElementSibling;
+                        if (paragraph && paragraph.classList.contains('paragraph')) {
+                            setTimeout(() => {
+                                paragraph.classList.add('animate');
+                            }, 1000); // 1-second delay after header animation
+                        }
+                    }
+                });
+            });
+
+            headers.forEach(header => {
+                observer.observe(header);
+            });
+        }
+
+        // Start observing headers and paragraphs once the page loads
+        window.addEventListener('DOMContentLoaded', observeHeadersAndParagraphs);
+    </script>
 
 
     <script>
@@ -51,8 +140,25 @@
             "title": "Australia Exports",
             "width": 800,
             "height": 400,
-            "background": "#87CEEB",
+            "background": "#d9dfe2",
             "projection": {"type": "equalEarth"},
+            "layer":[
+                {
+            "data": {
+        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
+        "format": {"type": "topojson", "feature": "oceans"}
+      },
+      "mark": {"type": "geoshape", "fill": "skyblue"},
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/2_symbol_map/js/WorldMapWithGraticules.topojson",
+        "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
+      },
+      "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"},
+    },
+    {
+    
             "data": {
                 "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
                 "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
@@ -83,7 +189,7 @@
                     "as": "Export (US$ Thousand)"
                 }
             ],
-            "mark": {"type": "geoshape"},
+            "mark": {"type": "geoshape","stroke": "white"},
             "encoding": {
                 "color": {
                     "field": "Export (US$ Thousand)",
@@ -95,6 +201,8 @@
                     {"field": "Export (US$ Thousand)", "type": "quantitative"}
                 ]
             }
+        }
+    ]
         };
 
         // Scatter plot for Imports, Exports and Tariffs
@@ -102,6 +210,7 @@
             "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
             "width": 600,
             "height": 400,
+            "background": "#d9dfe2",
             "title": "Imports, Exports and Tariffs",
             "data": {
                 "url": "https://raw.githubusercontent.com/ZebGirum/fit3179data/main/WITS-Partner_countriescsv.csv"
@@ -233,8 +342,9 @@
         // Line chart
         const lineSpec = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 600,
+    "width": 876,
     "height": 400,
+    "background": "#d9dfe2",
     "data": {
       "url": "https://raw.githubusercontent.com/ZebGirum/fit3179data/main/Balance_on_trade_in_services.csv"
     },
@@ -267,7 +377,7 @@
       {
         "mark": "rule",
         "encoding": {
-          "y": {"value": 75},  
+          "y": {"value": 150},  
           "color": {"value": "red"},  
           "size": {"value": 0.1}  
         }
@@ -280,11 +390,12 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 500,
   "height": 400,
+  "background": "#d9dfe2",
   "data": {"url": "https://raw.githubusercontent.com/ZebGirum/fit3179data/main/transformed-data.csv"},
   "mark": "area",
   "encoding": {
     "x": {
-      "timeUnit": "yearmonth", "field": "year",
+      "timeUnit": "year", "field": "year",
       "axis": {"format": "%Y"}
     },
     "y": {
@@ -293,7 +404,12 @@
     "color": {
       "field": "Row Labels",
       "scale": {"scheme": "category20b"}
-    }
+    },
+    "tooltip": [
+            {"field": "Row Labels", "type": "nominal", "title": "Category"},
+            {"field": "year", "type": "temporal", "title": "Year"},
+            {"field": "value", "type": "quantitative", "title": "Value ($m)"}
+          ]
   }
 };
 
@@ -302,13 +418,19 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 600,
   "height": 400,
+  "background": "#d9dfe2",
   "data": {"url": "https://raw.githubusercontent.com/ZebGirum/fit3179data/main/transformed_state_exports_data.csv"},
   "mark": "bar",
   "encoding": {
     "x": {"aggregate": "sum", "field": "value"},
     "y": {"field": "Year"},
-    "color": {"field": "State"}
-  }
+    "color": {"field": "State"},
+    "tooltip": [
+            {"field": "State", "type": "nominal", "title": "State"},
+            {"field": "value", "type": "quantitative", "title": "Value"}
+          ]
+  },
+  
 };
 
         
@@ -320,3 +442,4 @@
     </script>
 </body>
 </html>
+
