@@ -1,37 +1,352 @@
-Month,States,value
-Jan,New South Wales (Kg (Millions),22.02
-Feb,New South Wales (Kg (Millions),24.25
-Mar,New South Wales (Kg (Millions),37.53
-Apr,New South Wales (Kg (Millions),29.95
-May,New South Wales (Kg (Millions),33.71
-Jun,New South Wales (Kg (Millions),33.38
-Jul,New South Wales (Kg (Millions),34.01
-Aug,New South Wales (Kg (Millions),35.99
-Sep,New South Wales (Kg (Millions),38.29
-Oct,New South Wales (Kg (Millions),33.92
-Nov,New South Wales (Kg (Millions),35.53
-Dec,New South Wales (Kg (Millions),38.18
-Jan,Victoria (Kg (Millions),27.27
-Feb,Victoria (Kg (Millions),34.56
-Mar,Victoria (Kg (Millions),41.13
-Apr,Victoria (Kg (Millions),38.63
-May,Victoria (Kg (Millions),37.38
-Jun,Victoria (Kg (Millions),44.42
-Jul,Victoria (Kg (Millions),48.98
-Aug,Victoria (Kg (Millions),46.41
-Sep,Victoria (Kg (Millions),47.94
-Oct,Victoria (Kg (Millions),51.22
-Nov,Victoria (Kg (Millions),47.76
-Dec,Victoria (Kg (Millions),54.81
-Jan,Queensland (Kg (Millions),34.53
-Feb,Queensland (Kg (Millions),46.12
-Mar,Queensland (Kg (Millions),70.74
-Apr,Queensland (Kg (Millions),57.99
-May,Queensland (Kg (Millions),61.22
-Jun,Queensland (Kg (Millions),68.22
-Jul,Queensland (Kg (Millions),69.55
-Aug,Queensland (Kg (Millions),71.55
-Sep,Queensland (Kg (Millions),69.69
-Oct,Queensland (Kg (Millions),63.33
-Nov,Queensland (Kg (Millions),75.49
-Dec,Queensland (Kg (Millions),59.02
+Month,Year,States,value
+Apr-14,2014.0,New South Wales (Kg (Millions),26.2
+May-14,2014.0,New South Wales (Kg (Millions),26.67
+Jun-14,2014.0,New South Wales (Kg (Millions),28.98
+Jul-14,2014.0,New South Wales (Kg (Millions),32.53
+Aug-14,2014.0,New South Wales (Kg (Millions),31.37
+Sep-14,2014.0,New South Wales (Kg (Millions),30.59
+Oct-14,2014.0,New South Wales (Kg (Millions),31.48
+Nov-14,2014.0,New South Wales (Kg (Millions),31.45
+Dec-14,2014.0,New South Wales (Kg (Millions),33.44
+Jan-15,2015.0,New South Wales (Kg (Millions),23.33
+Feb-15,2015.0,New South Wales (Kg (Millions),29.03
+Mar-15,2015.0,New South Wales (Kg (Millions),36.4
+Apr-15,2015.0,New South Wales (Kg (Millions),27.62
+May-15,2015.0,New South Wales (Kg (Millions),32.65
+Jun-15,2015.0,New South Wales (Kg (Millions),31.43
+Jul-15,2015.0,New South Wales (Kg (Millions),28.7
+Aug-15,2015.0,New South Wales (Kg (Millions),28.73
+Sep-15,2015.0,New South Wales (Kg (Millions),24.44
+Oct-15,2015.0,New South Wales (Kg (Millions),28.02
+Nov-15,2015.0,New South Wales (Kg (Millions),26.82
+Dec-15,2015.0,New South Wales (Kg (Millions),28.98
+Jan-16,2016.0,New South Wales (Kg (Millions),19.34
+Feb-16,2016.0,New South Wales (Kg (Millions),27.25
+Mar-16,2016.0,New South Wales (Kg (Millions),28.96
+Apr-16,2016.0,New South Wales (Kg (Millions),25.95
+May-16,2016.0,New South Wales (Kg (Millions),26.91
+Jun-16,2016.0,New South Wales (Kg (Millions),25.51
+Jul-16,2016.0,New South Wales (Kg (Millions),24.29
+Aug-16,2016.0,New South Wales (Kg (Millions),21.25
+Sep-16,2016.0,New South Wales (Kg (Millions),20.35
+Oct-16,2016.0,New South Wales (Kg (Millions),20.59
+Nov-16,2016.0,New South Wales (Kg (Millions),25.28
+Dec-16,2016.0,New South Wales (Kg (Millions),27.38
+Jan-17,2017.0,New South Wales (Kg (Millions),19.95
+Feb-17,2017.0,New South Wales (Kg (Millions),23.5
+Mar-17,2017.0,New South Wales (Kg (Millions),24.87
+Apr-17,2017.0,New South Wales (Kg (Millions),22.28
+May-17,2017.0,New South Wales (Kg (Millions),25.04
+Jun-17,2017.0,New South Wales (Kg (Millions),24.99
+Jul-17,2017.0,New South Wales (Kg (Millions),27.54
+Aug-17,2017.0,New South Wales (Kg (Millions),23.74
+Sep-17,2017.0,New South Wales (Kg (Millions),26.96
+Oct-17,2017.0,New South Wales (Kg (Millions),27.69
+Nov-17,2017.0,New South Wales (Kg (Millions),27.19
+Dec-17,2017.0,New South Wales (Kg (Millions),27.64
+Jan-18,2018.0,New South Wales (Kg (Millions),20.12
+Feb-18,2018.0,New South Wales (Kg (Millions),27.27
+Mar-18,2018.0,New South Wales (Kg (Millions),30.93
+Apr-18,2018.0,New South Wales (Kg (Millions),27.8
+May-18,2018.0,New South Wales (Kg (Millions),31.08
+Jun-18,2018.0,New South Wales (Kg (Millions),29.27
+Jul-18,2018.0,New South Wales (Kg (Millions),30.82
+Aug-18,2018.0,New South Wales (Kg (Millions),29.25
+Sep-18,2018.0,New South Wales (Kg (Millions),28.13
+Oct-18,2018.0,New South Wales (Kg (Millions),27.97
+Nov-18,2018.0,New South Wales (Kg (Millions),27.6
+Dec-18,2018.0,New South Wales (Kg (Millions),32.8
+Jan-19,2019.0,New South Wales (Kg (Millions),21.19
+Feb-19,2019.0,New South Wales (Kg (Millions),30.74
+Mar-19,2019.0,New South Wales (Kg (Millions),34.34
+Apr-19,2019.0,New South Wales (Kg (Millions),35.37
+May-19,2019.0,New South Wales (Kg (Millions),30.7
+Jun-19,2019.0,New South Wales (Kg (Millions),31.55
+Jul-19,2019.0,New South Wales (Kg (Millions),31.12
+Aug-19,2019.0,New South Wales (Kg (Millions),33.17
+Sep-19,2019.0,New South Wales (Kg (Millions),33.89
+Oct-19,2019.0,New South Wales (Kg (Millions),34.28
+Nov-19,2019.0,New South Wales (Kg (Millions),37.22
+Dec-19,2019.0,New South Wales (Kg (Millions),33.65
+Jan-20,2020.0,New South Wales (Kg (Millions),28.13
+Feb-20,2020.0,New South Wales (Kg (Millions),32.59
+Mar-20,2020.0,New South Wales (Kg (Millions),31.34
+Apr-20,2020.0,New South Wales (Kg (Millions),26.33
+May-20,2020.0,New South Wales (Kg (Millions),27.32
+Jun-20,2020.0,New South Wales (Kg (Millions),30.07
+Jul-20,2020.0,New South Wales (Kg (Millions),23.17
+Aug-20,2020.0,New South Wales (Kg (Millions),29.05
+Sep-20,2020.0,New South Wales (Kg (Millions),25.0
+Oct-20,2020.0,New South Wales (Kg (Millions),30.66
+Nov-20,2020.0,New South Wales (Kg (Millions),31.08
+Dec-20,2020.0,New South Wales (Kg (Millions),30.91
+Jan-21,2021.0,New South Wales (Kg (Millions),16.12
+Feb-21,2021.0,New South Wales (Kg (Millions),25.28
+Mar-21,2021.0,New South Wales (Kg (Millions),28.87
+Apr-21,2021.0,New South Wales (Kg (Millions),24.78
+May-21,2021.0,New South Wales (Kg (Millions),29.97
+Jun-21,2021.0,New South Wales (Kg (Millions),23.44
+Jul-21,2021.0,New South Wales (Kg (Millions),26.53
+Aug-21,2021.0,New South Wales (Kg (Millions),27.55
+Sep-21,2021.0,New South Wales (Kg (Millions),24.02
+Oct-21,2021.0,New South Wales (Kg (Millions),27.12
+Nov-21,2021.0,New South Wales (Kg (Millions),28.34
+Dec-21,2021.0,New South Wales (Kg (Millions),27.26
+Jan-22,2022.0,New South Wales (Kg (Millions),17.57
+Feb-22,2022.0,New South Wales (Kg (Millions),22.74
+Mar-22,2022.0,New South Wales (Kg (Millions),27.82
+Apr-22,2022.0,New South Wales (Kg (Millions),27.65
+May-22,2022.0,New South Wales (Kg (Millions),29.69
+Jun-22,2022.0,New South Wales (Kg (Millions),29.45
+Jul-22,2022.0,New South Wales (Kg (Millions),25.45
+Aug-22,2022.0,New South Wales (Kg (Millions),31.53
+Sep-22,2022.0,New South Wales (Kg (Millions),26.35
+Oct-22,2022.0,New South Wales (Kg (Millions),26.3
+Nov-22,2022.0,New South Wales (Kg (Millions),25.52
+Dec-22,2022.0,New South Wales (Kg (Millions),27.53
+Jan-23,2023.0,New South Wales (Kg (Millions),22.02
+Feb-23,2023.0,New South Wales (Kg (Millions),24.25
+Mar-23,2023.0,New South Wales (Kg (Millions),37.53
+Apr-23,2023.0,New South Wales (Kg (Millions),29.95
+May-23,2023.0,New South Wales (Kg (Millions),33.71
+Jun-23,2023.0,New South Wales (Kg (Millions),33.38
+Jul-23,2023.0,New South Wales (Kg (Millions),34.01
+Aug-23,2023.0,New South Wales (Kg (Millions),35.99
+Sep-23,2023.0,New South Wales (Kg (Millions),38.29
+Oct-23,2023.0,New South Wales (Kg (Millions),33.92
+Nov-23,2023.0,New South Wales (Kg (Millions),35.53
+Dec-23,2023.0,New South Wales (Kg (Millions),38.18
+Apr-14,2014.0,Victoria (Kg (Millions),37.32
+May-14,2014.0,Victoria (Kg (Millions),35.49
+Jun-14,2014.0,Victoria (Kg (Millions),37.41
+Jul-14,2014.0,Victoria (Kg (Millions),41.07
+Aug-14,2014.0,Victoria (Kg (Millions),39.44
+Sep-14,2014.0,Victoria (Kg (Millions),41.23
+Oct-14,2014.0,Victoria (Kg (Millions),48.74
+Nov-14,2014.0,Victoria (Kg (Millions),41.92
+Dec-14,2014.0,Victoria (Kg (Millions),43.99
+Jan-15,2015.0,Victoria (Kg (Millions),29.71
+Feb-15,2015.0,Victoria (Kg (Millions),39.29
+Mar-15,2015.0,Victoria (Kg (Millions),43.92
+Apr-15,2015.0,Victoria (Kg (Millions),37.82
+May-15,2015.0,Victoria (Kg (Millions),39.86
+Jun-15,2015.0,Victoria (Kg (Millions),37.01
+Jul-15,2015.0,Victoria (Kg (Millions),32.16
+Aug-15,2015.0,Victoria (Kg (Millions),32.48
+Sep-15,2015.0,Victoria (Kg (Millions),30.54
+Oct-15,2015.0,Victoria (Kg (Millions),36.44
+Nov-15,2015.0,Victoria (Kg (Millions),35.96
+Dec-15,2015.0,Victoria (Kg (Millions),37.98
+Jan-16,2016.0,Victoria (Kg (Millions),27.13
+Feb-16,2016.0,Victoria (Kg (Millions),34.68
+Mar-16,2016.0,Victoria (Kg (Millions),34.08
+Apr-16,2016.0,Victoria (Kg (Millions),31.13
+May-16,2016.0,Victoria (Kg (Millions),31.95
+Jun-16,2016.0,Victoria (Kg (Millions),28.7
+Jul-16,2016.0,Victoria (Kg (Millions),23.61
+Aug-16,2016.0,Victoria (Kg (Millions),22.15
+Sep-16,2016.0,Victoria (Kg (Millions),23.09
+Oct-16,2016.0,Victoria (Kg (Millions),25.97
+Nov-16,2016.0,Victoria (Kg (Millions),29.71
+Dec-16,2016.0,Victoria (Kg (Millions),32.18
+Jan-17,2017.0,Victoria (Kg (Millions),25.05
+Feb-17,2017.0,Victoria (Kg (Millions),29.12
+Mar-17,2017.0,Victoria (Kg (Millions),29.73
+Apr-17,2017.0,Victoria (Kg (Millions),28.18
+May-17,2017.0,Victoria (Kg (Millions),30.35
+Jun-17,2017.0,Victoria (Kg (Millions),28.57
+Jul-17,2017.0,Victoria (Kg (Millions),30.34
+Aug-17,2017.0,Victoria (Kg (Millions),32.87
+Sep-17,2017.0,Victoria (Kg (Millions),30.13
+Oct-17,2017.0,Victoria (Kg (Millions),39.93
+Nov-17,2017.0,Victoria (Kg (Millions),38.04
+Dec-17,2017.0,Victoria (Kg (Millions),38.97
+Jan-18,2018.0,Victoria (Kg (Millions),28.93
+Feb-18,2018.0,Victoria (Kg (Millions),36.27
+Mar-18,2018.0,Victoria (Kg (Millions),41.97
+Apr-18,2018.0,Victoria (Kg (Millions),36.53
+May-18,2018.0,Victoria (Kg (Millions),45.76
+Jun-18,2018.0,Victoria (Kg (Millions),41.24
+Jul-18,2018.0,Victoria (Kg (Millions),39.34
+Aug-18,2018.0,Victoria (Kg (Millions),38.04
+Sep-18,2018.0,Victoria (Kg (Millions),38.93
+Oct-18,2018.0,Victoria (Kg (Millions),42.66
+Nov-18,2018.0,Victoria (Kg (Millions),43.94
+Dec-18,2018.0,Victoria (Kg (Millions),48.0
+Jan-19,2019.0,Victoria (Kg (Millions),39.44
+Feb-19,2019.0,Victoria (Kg (Millions),43.85
+Mar-19,2019.0,Victoria (Kg (Millions),47.04
+Apr-19,2019.0,Victoria (Kg (Millions),48.65
+May-19,2019.0,Victoria (Kg (Millions),41.32
+Jun-19,2019.0,Victoria (Kg (Millions),43.42
+Jul-19,2019.0,Victoria (Kg (Millions),39.82
+Aug-19,2019.0,Victoria (Kg (Millions),38.15
+Sep-19,2019.0,Victoria (Kg (Millions),38.09
+Oct-19,2019.0,Victoria (Kg (Millions),49.58
+Nov-19,2019.0,Victoria (Kg (Millions),50.25
+Dec-19,2019.0,Victoria (Kg (Millions),52.88
+Jan-20,2020.0,Victoria (Kg (Millions),39.39
+Feb-20,2020.0,Victoria (Kg (Millions),45.52
+Mar-20,2020.0,Victoria (Kg (Millions),46.55
+Apr-20,2020.0,Victoria (Kg (Millions),40.93
+May-20,2020.0,Victoria (Kg (Millions),34.01
+Jun-20,2020.0,Victoria (Kg (Millions),38.34
+Jul-20,2020.0,Victoria (Kg (Millions),32.19
+Aug-20,2020.0,Victoria (Kg (Millions),29.12
+Sep-20,2020.0,Victoria (Kg (Millions),28.22
+Oct-20,2020.0,Victoria (Kg (Millions),37.26
+Nov-20,2020.0,Victoria (Kg (Millions),34.55
+Dec-20,2020.0,Victoria (Kg (Millions),36.59
+Jan-21,2021.0,Victoria (Kg (Millions),25.24
+Feb-21,2021.0,Victoria (Kg (Millions),30.23
+Mar-21,2021.0,Victoria (Kg (Millions),34.5
+Apr-21,2021.0,Victoria (Kg (Millions),29.79
+May-21,2021.0,Victoria (Kg (Millions),34.69
+Jun-21,2021.0,Victoria (Kg (Millions),30.79
+Jul-21,2021.0,Victoria (Kg (Millions),37.34
+Aug-21,2021.0,Victoria (Kg (Millions),29.67
+Sep-21,2021.0,Victoria (Kg (Millions),31.99
+Oct-21,2021.0,Victoria (Kg (Millions),32.28
+Nov-21,2021.0,Victoria (Kg (Millions),34.83
+Dec-21,2021.0,Victoria (Kg (Millions),37.97
+Jan-22,2022.0,Victoria (Kg (Millions),28.07
+Feb-22,2022.0,Victoria (Kg (Millions),27.09
+Mar-22,2022.0,Victoria (Kg (Millions),36.09
+Apr-22,2022.0,Victoria (Kg (Millions),32.39
+May-22,2022.0,Victoria (Kg (Millions),34.83
+Jun-22,2022.0,Victoria (Kg (Millions),35.95
+Jul-22,2022.0,Victoria (Kg (Millions),36.26
+Aug-22,2022.0,Victoria (Kg (Millions),37.26
+Sep-22,2022.0,Victoria (Kg (Millions),33.83
+Oct-22,2022.0,Victoria (Kg (Millions),37.74
+Nov-22,2022.0,Victoria (Kg (Millions),31.26
+Dec-22,2022.0,Victoria (Kg (Millions),34.85
+Jan-23,2023.0,Victoria (Kg (Millions),27.27
+Feb-23,2023.0,Victoria (Kg (Millions),34.56
+Mar-23,2023.0,Victoria (Kg (Millions),41.13
+Apr-23,2023.0,Victoria (Kg (Millions),38.63
+May-23,2023.0,Victoria (Kg (Millions),37.38
+Jun-23,2023.0,Victoria (Kg (Millions),44.42
+Jul-23,2023.0,Victoria (Kg (Millions),48.98
+Aug-23,2023.0,Victoria (Kg (Millions),46.41
+Sep-23,2023.0,Victoria (Kg (Millions),47.94
+Oct-23,2023.0,Victoria (Kg (Millions),51.22
+Nov-23,2023.0,Victoria (Kg (Millions),47.76
+Dec-23,2023.0,Victoria (Kg (Millions),54.81
+Apr-14,2014.0,Queensland (Kg (Millions),65.95
+May-14,2014.0,Queensland (Kg (Millions),70.33
+Jun-14,2014.0,Queensland (Kg (Millions),68.64
+Jul-14,2014.0,Queensland (Kg (Millions),79.72
+Aug-14,2014.0,Queensland (Kg (Millions),71.83
+Sep-14,2014.0,Queensland (Kg (Millions),69.12
+Oct-14,2014.0,Queensland (Kg (Millions),75.34
+Nov-14,2014.0,Queensland (Kg (Millions),76.84
+Dec-14,2014.0,Queensland (Kg (Millions),72.68
+Jan-15,2015.0,Queensland (Kg (Millions),35.39
+Feb-15,2015.0,Queensland (Kg (Millions),59.02
+Mar-15,2015.0,Queensland (Kg (Millions),73.91
+Apr-15,2015.0,Queensland (Kg (Millions),67.43
+May-15,2015.0,Queensland (Kg (Millions),80.36
+Jun-15,2015.0,Queensland (Kg (Millions),76.52
+Jul-15,2015.0,Queensland (Kg (Millions),81.39
+Aug-15,2015.0,Queensland (Kg (Millions),74.23
+Sep-15,2015.0,Queensland (Kg (Millions),70.97
+Oct-15,2015.0,Queensland (Kg (Millions),69.83
+Nov-15,2015.0,Queensland (Kg (Millions),63.69
+Dec-15,2015.0,Queensland (Kg (Millions),65.56
+Jan-16,2016.0,Queensland (Kg (Millions),26.63
+Feb-16,2016.0,Queensland (Kg (Millions),51.43
+Mar-16,2016.0,Queensland (Kg (Millions),62.02
+Apr-16,2016.0,Queensland (Kg (Millions),53.73
+May-16,2016.0,Queensland (Kg (Millions),67.04
+Jun-16,2016.0,Queensland (Kg (Millions),65.06
+Jul-16,2016.0,Queensland (Kg (Millions),59.02
+Aug-16,2016.0,Queensland (Kg (Millions),54.16
+Sep-16,2016.0,Queensland (Kg (Millions),55.84
+Oct-16,2016.0,Queensland (Kg (Millions),49.92
+Nov-16,2016.0,Queensland (Kg (Millions),61.22
+Dec-16,2016.0,Queensland (Kg (Millions),62.1
+Jan-17,2017.0,Queensland (Kg (Millions),25.43
+Feb-17,2017.0,Queensland (Kg (Millions),46.91
+Mar-17,2017.0,Queensland (Kg (Millions),61.48
+Apr-17,2017.0,Queensland (Kg (Millions),46.19
+May-17,2017.0,Queensland (Kg (Millions),62.46
+Jun-17,2017.0,Queensland (Kg (Millions),62.78
+Jul-17,2017.0,Queensland (Kg (Millions),69.17
+Aug-17,2017.0,Queensland (Kg (Millions),62.25
+Sep-17,2017.0,Queensland (Kg (Millions),67.17
+Oct-17,2017.0,Queensland (Kg (Millions),52.69
+Nov-17,2017.0,Queensland (Kg (Millions),52.43
+Dec-17,2017.0,Queensland (Kg (Millions),63.08
+Jan-18,2018.0,Queensland (Kg (Millions),29.86
+Feb-18,2018.0,Queensland (Kg (Millions),55.78
+Mar-18,2018.0,Queensland (Kg (Millions),59.15
+Apr-18,2018.0,Queensland (Kg (Millions),55.82
+May-18,2018.0,Queensland (Kg (Millions),71.29
+Jun-18,2018.0,Queensland (Kg (Millions),75.27
+Jul-18,2018.0,Queensland (Kg (Millions),72.55
+Aug-18,2018.0,Queensland (Kg (Millions),76.34
+Sep-18,2018.0,Queensland (Kg (Millions),66.31
+Oct-18,2018.0,Queensland (Kg (Millions),64.28
+Nov-18,2018.0,Queensland (Kg (Millions),62.41
+Dec-18,2018.0,Queensland (Kg (Millions),67.66
+Jan-19,2019.0,Queensland (Kg (Millions),31.72
+Feb-19,2019.0,Queensland (Kg (Millions),55.07
+Mar-19,2019.0,Queensland (Kg (Millions),76.37
+Apr-19,2019.0,Queensland (Kg (Millions),63.69
+May-19,2019.0,Queensland (Kg (Millions),67.28
+Jun-19,2019.0,Queensland (Kg (Millions),70.47
+Jul-19,2019.0,Queensland (Kg (Millions),77.68
+Aug-19,2019.0,Queensland (Kg (Millions),75.93
+Sep-19,2019.0,Queensland (Kg (Millions),72.23
+Oct-19,2019.0,Queensland (Kg (Millions),75.62
+Nov-19,2019.0,Queensland (Kg (Millions),72.35
+Dec-19,2019.0,Queensland (Kg (Millions),77.32
+Jan-20,2020.0,Queensland (Kg (Millions),41.24
+Feb-20,2020.0,Queensland (Kg (Millions),57.43
+Mar-20,2020.0,Queensland (Kg (Millions),60.37
+Apr-20,2020.0,Queensland (Kg (Millions),56.79
+May-20,2020.0,Queensland (Kg (Millions),71.85
+Jun-20,2020.0,Queensland (Kg (Millions),62.45
+Jul-20,2020.0,Queensland (Kg (Millions),58.81
+Aug-20,2020.0,Queensland (Kg (Millions),62.36
+Sep-20,2020.0,Queensland (Kg (Millions),44.26
+Oct-20,2020.0,Queensland (Kg (Millions),58.69
+Nov-20,2020.0,Queensland (Kg (Millions),56.82
+Dec-20,2020.0,Queensland (Kg (Millions),57.36
+Jan-21,2021.0,Queensland (Kg (Millions),33.7
+Feb-21,2021.0,Queensland (Kg (Millions),45.0
+Mar-21,2021.0,Queensland (Kg (Millions),61.62
+Apr-21,2021.0,Queensland (Kg (Millions),56.69
+May-21,2021.0,Queensland (Kg (Millions),58.48
+Jun-21,2021.0,Queensland (Kg (Millions),56.13
+Jul-21,2021.0,Queensland (Kg (Millions),59.36
+Aug-21,2021.0,Queensland (Kg (Millions),62.29
+Sep-21,2021.0,Queensland (Kg (Millions),60.54
+Oct-21,2021.0,Queensland (Kg (Millions),58.33
+Nov-21,2021.0,Queensland (Kg (Millions),60.29
+Dec-21,2021.0,Queensland (Kg (Millions),48.84
+Jan-22,2022.0,Queensland (Kg (Millions),30.36
+Feb-22,2022.0,Queensland (Kg (Millions),37.22
+Mar-22,2022.0,Queensland (Kg (Millions),49.56
+Apr-22,2022.0,Queensland (Kg (Millions),46.86
+May-22,2022.0,Queensland (Kg (Millions),53.26
+Jun-22,2022.0,Queensland (Kg (Millions),56.19
+Jul-22,2022.0,Queensland (Kg (Millions),56.38
+Aug-22,2022.0,Queensland (Kg (Millions),63.04
+Sep-22,2022.0,Queensland (Kg (Millions),52.49
+Oct-22,2022.0,Queensland (Kg (Millions),52.54
+Nov-22,2022.0,Queensland (Kg (Millions),53.16
+Dec-22,2022.0,Queensland (Kg (Millions),51.05
+Jan-23,2023.0,Queensland (Kg (Millions),34.53
+Feb-23,2023.0,Queensland (Kg (Millions),46.12
+Mar-23,2023.0,Queensland (Kg (Millions),70.74
+Apr-23,2023.0,Queensland (Kg (Millions),57.99
+May-23,2023.0,Queensland (Kg (Millions),61.22
+Jun-23,2023.0,Queensland (Kg (Millions),68.22
+Jul-23,2023.0,Queensland (Kg (Millions),69.55
+Aug-23,2023.0,Queensland (Kg (Millions),71.55
+Sep-23,2023.0,Queensland (Kg (Millions),69.69
+Oct-23,2023.0,Queensland (Kg (Millions),63.33
+Nov-23,2023.0,Queensland (Kg (Millions),75.49
+Dec-23,2023.0,Queensland (Kg (Millions),59.02
