@@ -1,125 +1,485 @@
-﻿Month-Year,China ($m),Japan ($m),South Korea ($m),United States of America ($m),
-Apr-14,109.98,143.23,80.22,179.68,
-May-14,82.64,154.09,87.79,206.02,
-Jun-14,79.57,166.09,84.23,217.2,
-Jul-14,87.61,170.53,89.18,253.59,
-Aug-14,84.88,172.44,82.19,283.55,
-Sep-14,91,169.91,81.08,318,
-Oct-14,94.37,196.34,107.95,390.67,
-Nov-14,102.88,201.85,119.65,398.76,
-Dec-14,117.18,208.31,117.62,377.33,
-Jan-15,53.08,124.66,72.82,229.09,
-Feb-15,100.29,168.5,94.03,332.65,
-Mar-15,119.87,205.04,115.96,398.23,
-Apr-15,109.95,190.32,108.56,313.71,
-May-15,124.22,183.67,129.87,380.78,
-Jun-15,113.59,183.04,126.23,359.07,
-Jul-15,108.24,192.1,137.75,353.13,
-Aug-15,116.13,169.22,109.95,376.78,
-Sep-15,106.45,200.42,114.51,341.98,
-Oct-15,118.33,208.07,135.5,320.25,
-Nov-15,131.28,186.26,126.41,273.43,
-Dec-15,117.28,217,163.16,289.42,
-Jan-16,47.66,103.26,75.69,188.28,
-Feb-16,68.68,146.38,128.28,257.11,
-Mar-16,91.85,189.72,135.7,270.87,
-Apr-16,77.19,175.46,112.17,226.55,
-May-16,85.51,189.49,134.74,268.31,
-Jun-16,84.81,208.45,136.92,236.83,
-Jul-16,79.56,199.66,117.67,191.9,
-Aug-16,72.89,184.02,119.28,184.18,
-Sep-16,81.67,189.16,136.75,165.23,
-Oct-16,80.26,169.75,129.62,152.29,
-Nov-16,88.31,219.57,170.2,200.08,
-Dec-16,99.05,220.82,177.62,242.57,
-Jan-17,77.08,101.18,85.83,158.51,
-Feb-17,91.45,174.76,104.84,219.09,
-Mar-17,111.3,220.87,114.32,230.66,
-Apr-17,102.53,170.68,84.14,209.84,
-May-17,102.59,224.34,113.27,245.76,
-Jun-17,103.04,219.57,124.44,240.56,
-Jul-17,106.93,236.14,132.26,249.12,
-Aug-17,78.19,210.75,109.11,252.98,
-Sep-17,102.68,200.25,133.31,226.24,
-Oct-17,149.53,189.46,101.82,205.82,
-Nov-17,154.65,191.61,117.25,218.59,
-Dec-17,174.71,222.51,142.68,215.53,
-Jan-18,95.4,118.49,78.92,164.08,
-Feb-18,129.97,187.65,119.66,193.91,
-Mar-18,136.52,221.03,129.19,226.51,
-Apr-18,144.14,217.23,110.16,195.08,
-May-18,181.56,263.74,139.67,239.79,
-Jun-18,175.76,251.92,144.17,262.94,
-Jul-18,179.06,245.53,151.62,248.36,
-Aug-18,178.75,256.4,181.75,268.96,
-Sep-18,191.41,195.79,150.44,235.55,
-Oct-18,194.49,213.84,143.27,255.14,
-Nov-18,201.12,245.11,163.93,207.6,
-Dec-18,243.49,257.28,167.34,264.84,
-Jan-19,148,141.02,93.25,184.53,
-Feb-19,231.36,185.17,129.49,251.16,
-Mar-19,273.94,257.3,164.55,300.96,
-Apr-19,281.8,203.17,138.82,278.59,
-May-19,273.48,260.12,155.38,256.21,
-Jun-19,298.87,250.81,168.2,301.56,
-Jul-19,312.69,265.83,158.38,266.58,
-Aug-19,330.38,254.66,146.22,272.58,
-Sep-19,381.08,251.71,135.17,260.74,
-Oct-19,455.1,236.03,139.05,301.8,
-Nov-19,515.03,244.75,153.27,323.63,
-Dec-19,472.28,251.53,175.48,345.66,
-Jan-20,285.37,167.55,116.5,219.23,
-Feb-20,253.85,251.69,155.81,308.45,
-Mar-20,266.03,291.01,154.48,315.56,
-Apr-20,316.81,231.05,140.78,256,
-May-20,324.77,257.54,169.94,241.37,
-Jun-20,244.95,191.17,159.69,309.44,
-Jul-20,158.46,183.12,140.75,290.68,
-Aug-20,198.32,212.46,141,268.38,
-Sep-20,171.67,193.94,112.99,191.95,
-Oct-20,229.01,214.56,156.27,242.86,
-Nov-20,235.49,215.66,167.13,222.66,
-Dec-20,258.24,231.89,176.52,234.89,
-Jan-21,147.54,118.03,100.7,127.87,
-Feb-21,221.06,139.11,130.76,173.41,
-Mar-21,247.37,202.42,166.21,228.64,
-Apr-21,201.1,191.29,173.58,225.55,
-May-21,253.89,216.95,161.4,257.28,
-Jun-21,223.33,200.08,152.35,241.29,
-Jul-21,238.51,220.05,176.43,328.53,
-Aug-21,229.64,242.41,187.47,298.41,
-Sep-21,249.07,222.59,168.16,312.49,
-Oct-21,255.18,216.95,203.88,321.24,
-Nov-21,293.11,240,257.42,255.63,
-Dec-21,281.6,220.3,210.52,275.11,
-Jan-22,174.53,121.42,146.47,220.7,
-Feb-22,240.13,178.65,173.77,182.57,
-Mar-22,205.77,252.09,193.4,298.22,
-Apr-22,236.39,155.75,160.7,298.09,
-May-22,269.97,296.21,204.32,258.43,
-Jun-22,324.56,266.28,224.63,330.19,
-Jul-22,244.18,240.41,246.91,278.43,
-Aug-22,307.26,228.94,258.57,335.24,
-Sep-22,300.7,175.07,199.57,278.69,
-Oct-22,295.51,207.02,230.42,307.23,
-Nov-22,264.89,217.61,178.91,255.44,
-Dec-22,239.44,166.28,211.35,289.08,
-Jan-23,181.87,143.67,136.14,180.1,
-Feb-23,211.04,221.06,164.69,215.77,
-Mar-23,351.32,217.12,243.68,306.04,
-Apr-23,381.5,183.43,205.11,253.53,
-May-23,343.82,198.18,198.39,277.21,
-Jun-23,332.82,233.09,198.45,332.49,
-Jul-23,279.21,200.29,219.39,401.71,
-Aug-23,295.73,204.61,201.14,373.65,
-Sep-23,305.87,186.48,192.66,377.54,
-Oct-23,314.65,154.75,223.33,375.1,
-Nov-23,280.79,186.69,229.92,413.3,
-Dec-23,320.07,199.02,195.66,379.45,
-Jan-24,203.27,157.6,135.89,318.59,
-Feb-24,254.61,219.85,172.8,373.83,
-Mar-24,268.9,219.29,218.84,446.85,
-Apr-24,214.35,217.26,165.59,432.68,
-,,,,,
-"Source: Australian Bureau of Statistics, Insights into Australian Exports of Meat 6/06/2024",,,,,
-,,,,,
+﻿Month-Year,Countries,value
+Apr-14,China ($m),109.98
+May-14,China ($m),82.64
+Jun-14,China ($m),79.57
+Jul-14,China ($m),87.61
+Aug-14,China ($m),84.88
+Sep-14,China ($m),91.0
+Oct-14,China ($m),94.37
+Nov-14,China ($m),102.88
+Dec-14,China ($m),117.18
+Jan-15,China ($m),53.08
+Feb-15,China ($m),100.29
+Mar-15,China ($m),119.87
+Apr-15,China ($m),109.95
+May-15,China ($m),124.22
+Jun-15,China ($m),113.59
+Jul-15,China ($m),108.24
+Aug-15,China ($m),116.13
+Sep-15,China ($m),106.45
+Oct-15,China ($m),118.33
+Nov-15,China ($m),131.28
+Dec-15,China ($m),117.28
+Jan-16,China ($m),47.66
+Feb-16,China ($m),68.68
+Mar-16,China ($m),91.85
+Apr-16,China ($m),77.19
+May-16,China ($m),85.51
+Jun-16,China ($m),84.81
+Jul-16,China ($m),79.56
+Aug-16,China ($m),72.89
+Sep-16,China ($m),81.67
+Oct-16,China ($m),80.26
+Nov-16,China ($m),88.31
+Dec-16,China ($m),99.05
+Jan-17,China ($m),77.08
+Feb-17,China ($m),91.45
+Mar-17,China ($m),111.3
+Apr-17,China ($m),102.53
+May-17,China ($m),102.59
+Jun-17,China ($m),103.04
+Jul-17,China ($m),106.93
+Aug-17,China ($m),78.19
+Sep-17,China ($m),102.68
+Oct-17,China ($m),149.53
+Nov-17,China ($m),154.65
+Dec-17,China ($m),174.71
+Jan-18,China ($m),95.4
+Feb-18,China ($m),129.97
+Mar-18,China ($m),136.52
+Apr-18,China ($m),144.14
+May-18,China ($m),181.56
+Jun-18,China ($m),175.76
+Jul-18,China ($m),179.06
+Aug-18,China ($m),178.75
+Sep-18,China ($m),191.41
+Oct-18,China ($m),194.49
+Nov-18,China ($m),201.12
+Dec-18,China ($m),243.49
+Jan-19,China ($m),148.0
+Feb-19,China ($m),231.36
+Mar-19,China ($m),273.94
+Apr-19,China ($m),281.8
+May-19,China ($m),273.48
+Jun-19,China ($m),298.87
+Jul-19,China ($m),312.69
+Aug-19,China ($m),330.38
+Sep-19,China ($m),381.08
+Oct-19,China ($m),455.1
+Nov-19,China ($m),515.03
+Dec-19,China ($m),472.28
+Jan-20,China ($m),285.37
+Feb-20,China ($m),253.85
+Mar-20,China ($m),266.03
+Apr-20,China ($m),316.81
+May-20,China ($m),324.77
+Jun-20,China ($m),244.95
+Jul-20,China ($m),158.46
+Aug-20,China ($m),198.32
+Sep-20,China ($m),171.67
+Oct-20,China ($m),229.01
+Nov-20,China ($m),235.49
+Dec-20,China ($m),258.24
+Jan-21,China ($m),147.54
+Feb-21,China ($m),221.06
+Mar-21,China ($m),247.37
+Apr-21,China ($m),201.1
+May-21,China ($m),253.89
+Jun-21,China ($m),223.33
+Jul-21,China ($m),238.51
+Aug-21,China ($m),229.64
+Sep-21,China ($m),249.07
+Oct-21,China ($m),255.18
+Nov-21,China ($m),293.11
+Dec-21,China ($m),281.6
+Jan-22,China ($m),174.53
+Feb-22,China ($m),240.13
+Mar-22,China ($m),205.77
+Apr-22,China ($m),236.39
+May-22,China ($m),269.97
+Jun-22,China ($m),324.56
+Jul-22,China ($m),244.18
+Aug-22,China ($m),307.26
+Sep-22,China ($m),300.7
+Oct-22,China ($m),295.51
+Nov-22,China ($m),264.89
+Dec-22,China ($m),239.44
+Jan-23,China ($m),181.87
+Feb-23,China ($m),211.04
+Mar-23,China ($m),351.32
+Apr-23,China ($m),381.5
+May-23,China ($m),343.82
+Jun-23,China ($m),332.82
+Jul-23,China ($m),279.21
+Aug-23,China ($m),295.73
+Sep-23,China ($m),305.87
+Oct-23,China ($m),314.65
+Nov-23,China ($m),280.79
+Dec-23,China ($m),320.07
+Jan-24,China ($m),203.27
+Feb-24,China ($m),254.61
+Mar-24,China ($m),268.9
+Apr-24,China ($m),214.35
+Apr-14,Japan ($m),143.23
+May-14,Japan ($m),154.09
+Jun-14,Japan ($m),166.09
+Jul-14,Japan ($m),170.53
+Aug-14,Japan ($m),172.44
+Sep-14,Japan ($m),169.91
+Oct-14,Japan ($m),196.34
+Nov-14,Japan ($m),201.85
+Dec-14,Japan ($m),208.31
+Jan-15,Japan ($m),124.66
+Feb-15,Japan ($m),168.5
+Mar-15,Japan ($m),205.04
+Apr-15,Japan ($m),190.32
+May-15,Japan ($m),183.67
+Jun-15,Japan ($m),183.04
+Jul-15,Japan ($m),192.1
+Aug-15,Japan ($m),169.22
+Sep-15,Japan ($m),200.42
+Oct-15,Japan ($m),208.07
+Nov-15,Japan ($m),186.26
+Dec-15,Japan ($m),217.0
+Jan-16,Japan ($m),103.26
+Feb-16,Japan ($m),146.38
+Mar-16,Japan ($m),189.72
+Apr-16,Japan ($m),175.46
+May-16,Japan ($m),189.49
+Jun-16,Japan ($m),208.45
+Jul-16,Japan ($m),199.66
+Aug-16,Japan ($m),184.02
+Sep-16,Japan ($m),189.16
+Oct-16,Japan ($m),169.75
+Nov-16,Japan ($m),219.57
+Dec-16,Japan ($m),220.82
+Jan-17,Japan ($m),101.18
+Feb-17,Japan ($m),174.76
+Mar-17,Japan ($m),220.87
+Apr-17,Japan ($m),170.68
+May-17,Japan ($m),224.34
+Jun-17,Japan ($m),219.57
+Jul-17,Japan ($m),236.14
+Aug-17,Japan ($m),210.75
+Sep-17,Japan ($m),200.25
+Oct-17,Japan ($m),189.46
+Nov-17,Japan ($m),191.61
+Dec-17,Japan ($m),222.51
+Jan-18,Japan ($m),118.49
+Feb-18,Japan ($m),187.65
+Mar-18,Japan ($m),221.03
+Apr-18,Japan ($m),217.23
+May-18,Japan ($m),263.74
+Jun-18,Japan ($m),251.92
+Jul-18,Japan ($m),245.53
+Aug-18,Japan ($m),256.4
+Sep-18,Japan ($m),195.79
+Oct-18,Japan ($m),213.84
+Nov-18,Japan ($m),245.11
+Dec-18,Japan ($m),257.28
+Jan-19,Japan ($m),141.02
+Feb-19,Japan ($m),185.17
+Mar-19,Japan ($m),257.3
+Apr-19,Japan ($m),203.17
+May-19,Japan ($m),260.12
+Jun-19,Japan ($m),250.81
+Jul-19,Japan ($m),265.83
+Aug-19,Japan ($m),254.66
+Sep-19,Japan ($m),251.71
+Oct-19,Japan ($m),236.03
+Nov-19,Japan ($m),244.75
+Dec-19,Japan ($m),251.53
+Jan-20,Japan ($m),167.55
+Feb-20,Japan ($m),251.69
+Mar-20,Japan ($m),291.01
+Apr-20,Japan ($m),231.05
+May-20,Japan ($m),257.54
+Jun-20,Japan ($m),191.17
+Jul-20,Japan ($m),183.12
+Aug-20,Japan ($m),212.46
+Sep-20,Japan ($m),193.94
+Oct-20,Japan ($m),214.56
+Nov-20,Japan ($m),215.66
+Dec-20,Japan ($m),231.89
+Jan-21,Japan ($m),118.03
+Feb-21,Japan ($m),139.11
+Mar-21,Japan ($m),202.42
+Apr-21,Japan ($m),191.29
+May-21,Japan ($m),216.95
+Jun-21,Japan ($m),200.08
+Jul-21,Japan ($m),220.05
+Aug-21,Japan ($m),242.41
+Sep-21,Japan ($m),222.59
+Oct-21,Japan ($m),216.95
+Nov-21,Japan ($m),240.0
+Dec-21,Japan ($m),220.3
+Jan-22,Japan ($m),121.42
+Feb-22,Japan ($m),178.65
+Mar-22,Japan ($m),252.09
+Apr-22,Japan ($m),155.75
+May-22,Japan ($m),296.21
+Jun-22,Japan ($m),266.28
+Jul-22,Japan ($m),240.41
+Aug-22,Japan ($m),228.94
+Sep-22,Japan ($m),175.07
+Oct-22,Japan ($m),207.02
+Nov-22,Japan ($m),217.61
+Dec-22,Japan ($m),166.28
+Jan-23,Japan ($m),143.67
+Feb-23,Japan ($m),221.06
+Mar-23,Japan ($m),217.12
+Apr-23,Japan ($m),183.43
+May-23,Japan ($m),198.18
+Jun-23,Japan ($m),233.09
+Jul-23,Japan ($m),200.29
+Aug-23,Japan ($m),204.61
+Sep-23,Japan ($m),186.48
+Oct-23,Japan ($m),154.75
+Nov-23,Japan ($m),186.69
+Dec-23,Japan ($m),199.02
+Jan-24,Japan ($m),157.6
+Feb-24,Japan ($m),219.85
+Mar-24,Japan ($m),219.29
+Apr-24,Japan ($m),217.26
+Apr-14,South Korea ($m),80.22
+May-14,South Korea ($m),87.79
+Jun-14,South Korea ($m),84.23
+Jul-14,South Korea ($m),89.18
+Aug-14,South Korea ($m),82.19
+Sep-14,South Korea ($m),81.08
+Oct-14,South Korea ($m),107.95
+Nov-14,South Korea ($m),119.65
+Dec-14,South Korea ($m),117.62
+Jan-15,South Korea ($m),72.82
+Feb-15,South Korea ($m),94.03
+Mar-15,South Korea ($m),115.96
+Apr-15,South Korea ($m),108.56
+May-15,South Korea ($m),129.87
+Jun-15,South Korea ($m),126.23
+Jul-15,South Korea ($m),137.75
+Aug-15,South Korea ($m),109.95
+Sep-15,South Korea ($m),114.51
+Oct-15,South Korea ($m),135.5
+Nov-15,South Korea ($m),126.41
+Dec-15,South Korea ($m),163.16
+Jan-16,South Korea ($m),75.69
+Feb-16,South Korea ($m),128.28
+Mar-16,South Korea ($m),135.7
+Apr-16,South Korea ($m),112.17
+May-16,South Korea ($m),134.74
+Jun-16,South Korea ($m),136.92
+Jul-16,South Korea ($m),117.67
+Aug-16,South Korea ($m),119.28
+Sep-16,South Korea ($m),136.75
+Oct-16,South Korea ($m),129.62
+Nov-16,South Korea ($m),170.2
+Dec-16,South Korea ($m),177.62
+Jan-17,South Korea ($m),85.83
+Feb-17,South Korea ($m),104.84
+Mar-17,South Korea ($m),114.32
+Apr-17,South Korea ($m),84.14
+May-17,South Korea ($m),113.27
+Jun-17,South Korea ($m),124.44
+Jul-17,South Korea ($m),132.26
+Aug-17,South Korea ($m),109.11
+Sep-17,South Korea ($m),133.31
+Oct-17,South Korea ($m),101.82
+Nov-17,South Korea ($m),117.25
+Dec-17,South Korea ($m),142.68
+Jan-18,South Korea ($m),78.92
+Feb-18,South Korea ($m),119.66
+Mar-18,South Korea ($m),129.19
+Apr-18,South Korea ($m),110.16
+May-18,South Korea ($m),139.67
+Jun-18,South Korea ($m),144.17
+Jul-18,South Korea ($m),151.62
+Aug-18,South Korea ($m),181.75
+Sep-18,South Korea ($m),150.44
+Oct-18,South Korea ($m),143.27
+Nov-18,South Korea ($m),163.93
+Dec-18,South Korea ($m),167.34
+Jan-19,South Korea ($m),93.25
+Feb-19,South Korea ($m),129.49
+Mar-19,South Korea ($m),164.55
+Apr-19,South Korea ($m),138.82
+May-19,South Korea ($m),155.38
+Jun-19,South Korea ($m),168.2
+Jul-19,South Korea ($m),158.38
+Aug-19,South Korea ($m),146.22
+Sep-19,South Korea ($m),135.17
+Oct-19,South Korea ($m),139.05
+Nov-19,South Korea ($m),153.27
+Dec-19,South Korea ($m),175.48
+Jan-20,South Korea ($m),116.5
+Feb-20,South Korea ($m),155.81
+Mar-20,South Korea ($m),154.48
+Apr-20,South Korea ($m),140.78
+May-20,South Korea ($m),169.94
+Jun-20,South Korea ($m),159.69
+Jul-20,South Korea ($m),140.75
+Aug-20,South Korea ($m),141.0
+Sep-20,South Korea ($m),112.99
+Oct-20,South Korea ($m),156.27
+Nov-20,South Korea ($m),167.13
+Dec-20,South Korea ($m),176.52
+Jan-21,South Korea ($m),100.7
+Feb-21,South Korea ($m),130.76
+Mar-21,South Korea ($m),166.21
+Apr-21,South Korea ($m),173.58
+May-21,South Korea ($m),161.4
+Jun-21,South Korea ($m),152.35
+Jul-21,South Korea ($m),176.43
+Aug-21,South Korea ($m),187.47
+Sep-21,South Korea ($m),168.16
+Oct-21,South Korea ($m),203.88
+Nov-21,South Korea ($m),257.42
+Dec-21,South Korea ($m),210.52
+Jan-22,South Korea ($m),146.47
+Feb-22,South Korea ($m),173.77
+Mar-22,South Korea ($m),193.4
+Apr-22,South Korea ($m),160.7
+May-22,South Korea ($m),204.32
+Jun-22,South Korea ($m),224.63
+Jul-22,South Korea ($m),246.91
+Aug-22,South Korea ($m),258.57
+Sep-22,South Korea ($m),199.57
+Oct-22,South Korea ($m),230.42
+Nov-22,South Korea ($m),178.91
+Dec-22,South Korea ($m),211.35
+Jan-23,South Korea ($m),136.14
+Feb-23,South Korea ($m),164.69
+Mar-23,South Korea ($m),243.68
+Apr-23,South Korea ($m),205.11
+May-23,South Korea ($m),198.39
+Jun-23,South Korea ($m),198.45
+Jul-23,South Korea ($m),219.39
+Aug-23,South Korea ($m),201.14
+Sep-23,South Korea ($m),192.66
+Oct-23,South Korea ($m),223.33
+Nov-23,South Korea ($m),229.92
+Dec-23,South Korea ($m),195.66
+Jan-24,South Korea ($m),135.89
+Feb-24,South Korea ($m),172.8
+Mar-24,South Korea ($m),218.84
+Apr-24,South Korea ($m),165.59
+Apr-14,United States of America ($m),179.68
+May-14,United States of America ($m),206.02
+Jun-14,United States of America ($m),217.2
+Jul-14,United States of America ($m),253.59
+Aug-14,United States of America ($m),283.55
+Sep-14,United States of America ($m),318.0
+Oct-14,United States of America ($m),390.67
+Nov-14,United States of America ($m),398.76
+Dec-14,United States of America ($m),377.33
+Jan-15,United States of America ($m),229.09
+Feb-15,United States of America ($m),332.65
+Mar-15,United States of America ($m),398.23
+Apr-15,United States of America ($m),313.71
+May-15,United States of America ($m),380.78
+Jun-15,United States of America ($m),359.07
+Jul-15,United States of America ($m),353.13
+Aug-15,United States of America ($m),376.78
+Sep-15,United States of America ($m),341.98
+Oct-15,United States of America ($m),320.25
+Nov-15,United States of America ($m),273.43
+Dec-15,United States of America ($m),289.42
+Jan-16,United States of America ($m),188.28
+Feb-16,United States of America ($m),257.11
+Mar-16,United States of America ($m),270.87
+Apr-16,United States of America ($m),226.55
+May-16,United States of America ($m),268.31
+Jun-16,United States of America ($m),236.83
+Jul-16,United States of America ($m),191.9
+Aug-16,United States of America ($m),184.18
+Sep-16,United States of America ($m),165.23
+Oct-16,United States of America ($m),152.29
+Nov-16,United States of America ($m),200.08
+Dec-16,United States of America ($m),242.57
+Jan-17,United States of America ($m),158.51
+Feb-17,United States of America ($m),219.09
+Mar-17,United States of America ($m),230.66
+Apr-17,United States of America ($m),209.84
+May-17,United States of America ($m),245.76
+Jun-17,United States of America ($m),240.56
+Jul-17,United States of America ($m),249.12
+Aug-17,United States of America ($m),252.98
+Sep-17,United States of America ($m),226.24
+Oct-17,United States of America ($m),205.82
+Nov-17,United States of America ($m),218.59
+Dec-17,United States of America ($m),215.53
+Jan-18,United States of America ($m),164.08
+Feb-18,United States of America ($m),193.91
+Mar-18,United States of America ($m),226.51
+Apr-18,United States of America ($m),195.08
+May-18,United States of America ($m),239.79
+Jun-18,United States of America ($m),262.94
+Jul-18,United States of America ($m),248.36
+Aug-18,United States of America ($m),268.96
+Sep-18,United States of America ($m),235.55
+Oct-18,United States of America ($m),255.14
+Nov-18,United States of America ($m),207.6
+Dec-18,United States of America ($m),264.84
+Jan-19,United States of America ($m),184.53
+Feb-19,United States of America ($m),251.16
+Mar-19,United States of America ($m),300.96
+Apr-19,United States of America ($m),278.59
+May-19,United States of America ($m),256.21
+Jun-19,United States of America ($m),301.56
+Jul-19,United States of America ($m),266.58
+Aug-19,United States of America ($m),272.58
+Sep-19,United States of America ($m),260.74
+Oct-19,United States of America ($m),301.8
+Nov-19,United States of America ($m),323.63
+Dec-19,United States of America ($m),345.66
+Jan-20,United States of America ($m),219.23
+Feb-20,United States of America ($m),308.45
+Mar-20,United States of America ($m),315.56
+Apr-20,United States of America ($m),256.0
+May-20,United States of America ($m),241.37
+Jun-20,United States of America ($m),309.44
+Jul-20,United States of America ($m),290.68
+Aug-20,United States of America ($m),268.38
+Sep-20,United States of America ($m),191.95
+Oct-20,United States of America ($m),242.86
+Nov-20,United States of America ($m),222.66
+Dec-20,United States of America ($m),234.89
+Jan-21,United States of America ($m),127.87
+Feb-21,United States of America ($m),173.41
+Mar-21,United States of America ($m),228.64
+Apr-21,United States of America ($m),225.55
+May-21,United States of America ($m),257.28
+Jun-21,United States of America ($m),241.29
+Jul-21,United States of America ($m),328.53
+Aug-21,United States of America ($m),298.41
+Sep-21,United States of America ($m),312.49
+Oct-21,United States of America ($m),321.24
+Nov-21,United States of America ($m),255.63
+Dec-21,United States of America ($m),275.11
+Jan-22,United States of America ($m),220.7
+Feb-22,United States of America ($m),182.57
+Mar-22,United States of America ($m),298.22
+Apr-22,United States of America ($m),298.09
+May-22,United States of America ($m),258.43
+Jun-22,United States of America ($m),330.19
+Jul-22,United States of America ($m),278.43
+Aug-22,United States of America ($m),335.24
+Sep-22,United States of America ($m),278.69
+Oct-22,United States of America ($m),307.23
+Nov-22,United States of America ($m),255.44
+Dec-22,United States of America ($m),289.08
+Jan-23,United States of America ($m),180.1
+Feb-23,United States of America ($m),215.77
+Mar-23,United States of America ($m),306.04
+Apr-23,United States of America ($m),253.53
+May-23,United States of America ($m),277.21
+Jun-23,United States of America ($m),332.49
+Jul-23,United States of America ($m),401.71
+Aug-23,United States of America ($m),373.65
+Sep-23,United States of America ($m),377.54
+Oct-23,United States of America ($m),375.1
+Nov-23,United States of America ($m),413.3
+Dec-23,United States of America ($m),379.45
+Jan-24,United States of America ($m),318.59
+Feb-24,United States of America ($m),373.83
+Mar-24,United States of America ($m),446.85
+Apr-24,United States of America ($m),432.68
