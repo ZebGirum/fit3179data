@@ -1,125 +1,37 @@
-﻿Month,New South Wales (Kg (Millions),Victoria (Kg (Millions),Queensland (Kg (Millions),
-Jan,22.02,27.27,34.53,
-Feb,24.25,34.56,46.12,
-Mar,37.53,41.13,70.74,
-Apr,29.95,38.63,57.99,
-May,33.71,37.38,61.22,
-Jun,33.38,44.42,68.22,
-Jul,34.01,48.98,69.55,
-Aug,35.99,46.41,71.55,
-Sep,38.29,47.94,69.69,
-Oct,33.92,51.22,63.33,
-Nov,35.53,47.76,75.49,
-Dec,38.18,54.81,59.02,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
+Month,States,value
+Jan,New South Wales (Kg (Millions),22.02
+Feb,New South Wales (Kg (Millions),24.25
+Mar,New South Wales (Kg (Millions),37.53
+Apr,New South Wales (Kg (Millions),29.95
+May,New South Wales (Kg (Millions),33.71
+Jun,New South Wales (Kg (Millions),33.38
+Jul,New South Wales (Kg (Millions),34.01
+Aug,New South Wales (Kg (Millions),35.99
+Sep,New South Wales (Kg (Millions),38.29
+Oct,New South Wales (Kg (Millions),33.92
+Nov,New South Wales (Kg (Millions),35.53
+Dec,New South Wales (Kg (Millions),38.18
+Jan,Victoria (Kg (Millions),27.27
+Feb,Victoria (Kg (Millions),34.56
+Mar,Victoria (Kg (Millions),41.13
+Apr,Victoria (Kg (Millions),38.63
+May,Victoria (Kg (Millions),37.38
+Jun,Victoria (Kg (Millions),44.42
+Jul,Victoria (Kg (Millions),48.98
+Aug,Victoria (Kg (Millions),46.41
+Sep,Victoria (Kg (Millions),47.94
+Oct,Victoria (Kg (Millions),51.22
+Nov,Victoria (Kg (Millions),47.76
+Dec,Victoria (Kg (Millions),54.81
+Jan,Queensland (Kg (Millions),34.53
+Feb,Queensland (Kg (Millions),46.12
+Mar,Queensland (Kg (Millions),70.74
+Apr,Queensland (Kg (Millions),57.99
+May,Queensland (Kg (Millions),61.22
+Jun,Queensland (Kg (Millions),68.22
+Jul,Queensland (Kg (Millions),69.55
+Aug,Queensland (Kg (Millions),71.55
+Sep,Queensland (Kg (Millions),69.69
+Oct,Queensland (Kg (Millions),63.33
+Nov,Queensland (Kg (Millions),75.49
+Dec,Queensland (Kg (Millions),59.02
