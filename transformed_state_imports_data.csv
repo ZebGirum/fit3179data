@@ -1,73 +1,49 @@
 Year,State,value
-2018.0,New South Wales ($m),41476.0
-2019.0,New South Wales ($m),43950.0
-2020.0,New South Wales ($m),28672.0
-2021.0,New South Wales ($m),28853.0
-2022.0,New South Wales ($m),45928.0
-2023.0,New South Wales ($m),52919.0
-,New South Wales ($m),
-,New South Wales ($m),
-,New South Wales ($m),
-2018.0,Victoria ($m),24544.0
-2019.0,Victoria ($m),25389.0
-2020.0,Victoria ($m),13175.0
-2021.0,Victoria ($m),12316.0
-2022.0,Victoria ($m),23695.0
-2023.0,Victoria ($m),26618.0
-,Victoria ($m),
-,Victoria ($m),
-,Victoria ($m),
-2018.0,Queensland ($m),14680.0
-2019.0,Queensland ($m),14737.0
-2020.0,Queensland ($m),6785.0
-2021.0,Queensland ($m),5523.0
-2022.0,Queensland ($m),11917.0
-2023.0,Queensland ($m),14703.0
-,Queensland ($m),
-,Queensland ($m),
-,Queensland ($m),
-2018.0,South Australia ($m),3728.0
-2019.0,South Australia ($m),3856.0
-2020.0,South Australia ($m),1974.0
-2021.0,South Australia ($m),1841.0
-2022.0,South Australia ($m),2853.0
-2023.0,South Australia ($m),3819.0
-,South Australia ($m),
-,South Australia ($m),
-,South Australia ($m),
-2018.0,Western Australia ($m),11383.0
-2019.0,Western Australia ($m),11251.0
-2020.0,Western Australia ($m),5481.0
-2021.0,Western Australia ($m),4394.0
-2022.0,Western Australia ($m),8606.0
-2023.0,Western Australia ($m),10804.0
-,Western Australia ($m),
-,Western Australia ($m),
-,Western Australia ($m),
-2018.0,Tasmania ($m),641.0
-2019.0,Tasmania ($m),684.0
-2020.0,Tasmania ($m),241.0
-2021.0,Tasmania ($m),169.0
-2022.0,Tasmania ($m),422.0
-2023.0,Tasmania ($m),604.0
-,Tasmania ($m),
-,Tasmania ($m),
-,Tasmania ($m),
-2018.0,Northern Territory ($m),596.0
-2019.0,Northern Territory ($m),659.0
-2020.0,Northern Territory ($m),209.0
-2021.0,Northern Territory ($m),147.0
-2022.0,Northern Territory ($m),396.0
-2023.0,Northern Territory ($m),499.0
-,Northern Territory ($m),
-,Northern Territory ($m),
-,Northern Territory ($m),
-2018.0,Australian Capital Territory ($m),2553.0
-2019.0,Australian Capital Territory ($m),2816.0
-2020.0,Australian Capital Territory ($m),2070.0
-2021.0,Australian Capital Territory ($m),1885.0
-2022.0,Australian Capital Territory ($m),2465.0
-2023.0,Australian Capital Territory ($m),2854.0
-,Australian Capital Territory ($m),
-,Australian Capital Territory ($m),
-,Australian Capital Territory ($m),
+2018,New South Wales ($m),41476.0
+2019,New South Wales ($m),43950.0
+2020,New South Wales ($m),28672.0
+2021,New South Wales ($m),28853.0
+2022,New South Wales ($m),45928.0
+2023,New South Wales ($m),52919.0
+2018,Victoria ($m),24544.0
+2019,Victoria ($m),25389.0
+2020,Victoria ($m),13175.0
+2021,Victoria ($m),12316.0
+2022,Victoria ($m),23695.0
+2023,Victoria ($m),26618.0
+2018,Queensland ($m),14680.0
+2019,Queensland ($m),14737.0
+2020,Queensland ($m),6785.0
+2021,Queensland ($m),5523.0
+2022,Queensland ($m),11917.0
+2023,Queensland ($m),14703.0
+2018,South Australia ($m),3728.0
+2019,South Australia ($m),3856.0
+2020,South Australia ($m),1974.0
+2021,South Australia ($m),1841.0
+2022,South Australia ($m),2853.0
+2023,South Australia ($m),3819.0
+2018,Western Australia ($m),11383.0
+2019,Western Australia ($m),11251.0
+2020,Western Australia ($m),5481.0
+2021,Western Australia ($m),4394.0
+2022,Western Australia ($m),8606.0
+2023,Western Australia ($m),10804.0
+2018,Tasmania ($m),641.0
+2019,Tasmania ($m),684.0
+2020,Tasmania ($m),241.0
+2021,Tasmania ($m),169.0
+2022,Tasmania ($m),422.0
+2023,Tasmania ($m),604.0
+2018,Northern Territory ($m),596.0
+2019,Northern Territory ($m),659.0
+2020,Northern Territory ($m),209.0
+2021,Northern Territory ($m),147.0
+2022,Northern Territory ($m),396.0
+2023,Northern Territory ($m),499.0
+2018,Australian Capital Territory ($m),2553.0
+2019,Australian Capital Territory ($m),2816.0
+2020,Australian Capital Territory ($m),2070.0
+2021,Australian Capital Territory ($m),1885.0
+2022,Australian Capital Territory ($m),2465.0
+2023,Australian Capital Territory ($m),2854.0
