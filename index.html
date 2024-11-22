@@ -1,865 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Australia Trade Visualizations</title>
+  <title>WEARFITS: Apparel Size Fitting & Recommendation Demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Include WEARFITS JavaScript SDK -->
+    <script src="https://dev.wearfits.com/static/js/wearfits.fr.bundle.min.js"></script>
+    <script src="https://dev.wearfits.com/static/js/virtual_advisor.js"></script>
+
     <style>
-        body {
-            background-color: #e0f2fb; /* Light blue color */
-            font-family: Arial, sans-serif;
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
         }
-
-        /* Chart dimensions */
-        #vis, #scatter, #line, #area, #bar, #importChart, #meatdonut, #meatheat {
-            width: 800px;
-            height: 400px;
-            margin: 20px auto;
-            display: block; 
-            margin-top: 30px;      /* Adds space above the chart */
-            margin-bottom: 110px;   /* Adds space below the chart */        
-        }
-
-         /* Chart container with flexbox for side-by-side layout */
-         .chart-container {
-            display: flex;
-            justify-content: space-around;
-            margin: 30px auto;
-            width: 90%;
-        }
-         /* Style for the dropdown */
-         .toggle-container {
-            display: flex;
-            justify-content: center;
-            margin: 30px auto;
-        }
-
-        select {
-            padding: 10px;
-            font-size: 16px;
-        }
-
-        /* Header animation */
-        .header {
-            white-space: nowrap;
-            overflow: hidden;
-            /*border-bottom: 5px solid rgb(0, 0, 0);*/
-            color: rgb(87, 88, 88);
-            opacity: 0; /* Initially hidden */
-            width: 0;   /* Initially no width */
-            transition: all 1s ease-out; /* Smooth animation */
-            text-align: center;
-        }
-
-         /* Paragraph animation */
-         .paragraph-1, .paragraph-2 {
-            opacity: 0; /* Initially hidden */
-            transform: translateY(20px); /* Initially moved down */
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-
-        /* When the header is in view, apply the animation */
-        .header.animate {
-            opacity: 1; /* Make visible */
-            width: 100%; /* Full width */
-        }
-
-          /* When the first paragraph is in view (with delay), animate */
-          .paragraph-1.animate {
-            opacity: 1; /* Make visible */
-            transform: translateY(0); /* Move to original position */
-        }
-
-        /* When the second paragraph is in view (with delay), animate */
-        .paragraph-2.animate {
-            opacity: 1; /* Make visible */
-            transform: translateY(0); /* Move to original position */
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 50px; /* Adds space below the title */
-            margin-top: 50px;
-            padding: 20px; /* Adds padding around the title */
-            /* Optional: background color for visibility */
-            border-radius: 10px; /* Optional: rounded corners */
-            display: block;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 50px; /* Adds space below the title */
-            margin-top: 50px;
-            padding: 20px; /* Adds padding around the title */
-            background-color: #ecfbfd; /* Optional: background color for visibility */
-            border-radius: 10px; /* Optional: rounded corners */
-            display: block;
-        }
-
-        p {
-            text-align: center;
-            margin-bottom: 50px; /* Adds space below the title */
-            margin-top: 50px;
-            padding: 20px; /* Adds padding around the title */
-            background-color: #c4dbdf; /* Optional: background color for visibility */
-            border-radius: 10px; /* Optional: rounded corners */
-            display: block;
-        }
-
         
-
+        #advisor_container {
+            width: 450px;
+            height: 100%;
+            background: white;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.8"></script>
-</head>
-<body>
-
-    <h1 style="text-align: center;">Australia Trade Visualizations</h1>
-
-    <h2 class="header">Australia World Exports</h2>
-    <p class="paragraph-1">Australia is a major player in the global trade arena, driven by its abundant natural resources, diverse industries, and strategic geographic location in the Asia-Pacific region.  Below, we can Visualize Australia's global export and import reach to determine key trade partners.</p>
-    <p class=" paragraph-2">If you observe the exports, you can see countries like China, Japan, South Korea, and India 
-        heavily import Australia's natural resources, driven by their industrial and energy needs. Australia also has a high rate
-    of export with first-world countries like the U.S. and Germany, which focuses on high-value goods, particularly technology and pharmaceuticals.
-when switching to imports, we can see that the major trade partners rate of export is similar to their rate of import. We especially see that 
-the Asia-Pacific region dominates both import and export markets due to proximity which reduces shipping costs and time. 
-From this, we can observe that proximity is indeed a key factor in Australia's trade.
-</p>
-    <div class="toggle-container">
-        <label for="world-toggle">Select Trade Type: </label>
-        <select id="world-toggle">
-            <option value="export">Exports</option>
-            <option value="import">Imports</option>
-        </select>
-    </div>
-    <div id="vis"></div>
-
-    <h2 class="header">Tariffs and Trade</h2>
-    <p class="paragraph-1">Now, Australia shares dynamic and complex trade relationships between countries, 
-        driven by the complementary nature of their economies. This can often affect the sale of goods and services
-    within Australia. If a country could import goods, then why should people buy from local retailers? To prevent this,
-    The trade relationship between Australia and other countries is also influenced by tariffs and tariff lines, which regulate the flow of goods across borders. 
-    Tariffs are taxes imposed on imports or exports, used by governments to protect local industries or to regulate trade. 
-    Now, the key information from this isn't tariffs, but the tariff lines. 
-    These are The tariff lines are classifications that define specific product categories under which these tariffs apply. </p>
-
-    <p class="paragraph-2"> Now, below we have a chart that displays total tariff lines for each country with Australia
-         and its relationship with trade volume highlighting the impact of tariff levels on trade flows. What we can observe
-         is that the more tariff lines there are, the greater both the rate of export and import is. This is because the greater the number
-         of tariff lines, the wider the variety of goods/servies is exported/imported between the 2 countries. this shows that the trade relationship
-         between Australia and countries like China, Japan, USA and New Zealand are extremely important to both countries. 
-     </p>
-    <div id="scatter"></div>
-
-    <h2 class="header">Balance of Trade</h2>
-    <p class="paragraph-1">Australia's rate of trade, and its balance between exports and imports is heavily influenced by global commodity prices, 
-        demand from major trading partners, and domestic consumption patterns. 
-        Each of these factors has contributed to large fluctuations in the balance over the years.</p>
-
-    <p class="paragraph-2">2013: Australia had a negative balance of trade due to increased imports for infrastructure and consumer goods, combined with lower export prices and a decline in mining exports.
-        2020: The positive trade balance was driven by high demand and prices for Australian commodities, while imports dropped due to the COVID-19 pandemic and a reduction in domestic consumption.
-        2021 and beyond: The trade balance reverted to negative as global commodity prices declined, domestic demand for imports surged, and trade tensions with China impacted some sectors.</p>
-    <div id="line"></div> <!-- Line chart -->
-
-    <h2 class="header">Top Trading Industries</h2>
-    <p class="paragraph-1">Australia's largest exports stems from its agriculture, ranging from wheat, barley, and dairy products to meat (beef and lamb), wool, and wine. 
-        These agricultural goods are critical for countries that face food security challenges, 
-        have limited arable land, or seek high-quality food products(China, India etc). 
-        Australia is considered a reliable supplier of premium agricultural products</p>
-
-    <p class="paragraph-2">Australia's imports, on the other hand, are vastly different from its exports. 
-        The key categories of Australian imports include petroleum products. Australia is heavily dependent on imported crude oil 
-        and refined petroleum products, as the country lacks sufficient domestic oil production capacity to meet its energy demands. Despite being a resource-rich nation, Australia’s oil reserves are limited, and it imports a significant portion of its petroleum to power industries, 
-        transportation, and for domestic consumption.</p>
-
-     <!-- Toggle dropdown for Exports/Imports -->
-     <div class="toggle-container">
-        <label for="trade-toggle">Select Trade Type: </label>
-        <select id="trade-toggle">
-            <option value="export">Exports</option>
-            <option value="import">Imports</option>
-        </select>
-    </div>
-    <div id="area"></div> <!-- Area chart -->
-
-    <h2 class="header">Top Exporter: Meat</h2>
-    <p class="paragraph-1">Australia is a major global supplier of beef and sheep meat, with China being a key destination. Trade with China surged in 2019 due to increased demand from Chinese consumers and reduced domestic production caused by African Swine Fever. However, exports to China dropped in 2020 when China suspended beef imports from several Australian businesses and imposed higher tariffs. Meat exports to China continued to decline through 2022 but began to recover in 2023 due to post-COVID economic recovery.
-
-        Exports to the United States increased in 2023 and into 2024, driven by drought conditions in the U.S. that reduced domestic production. Meanwhile, exports to Japan have been declining due to reduced demand from the restaurant sector, weak consumer spending, and inflationary pressures.
-    </p>
-    <div id="meatdonut"></div> <!-- Donut chart -->
-
-    <h2 class="header">Meat Exports by State</h2>
-    <p class="paragraph-1">
-        Australia's top meat exporters are Queensland (QLD), New South Wales (NSW), and Victoria (VIC), major contributors to the country's bovine and sheep meat exports. 
-        Meat production and exports generally increase as the months progress as Livestock production aligns with seasonal pasture availability, peaking in spring and summer, leading to higher exports later in the year.
- Demand also rises before major events, like Chinese New Year and Christmas, boosting exports in specific months.
-
-For all the top producers, January sees a massive dip in production due to the
-Heat: Extreme summer heat reduces feed quality and livestock activity and due to post-holiday demand often dipping, leading to reduced exports.
-    </p>
-    
-    <p class="paragraph-2">
-        Now, while these top producers share trends, they also differ in specific months. 
-        Both NSW and QLD have a high export rate in march but VIC doesnt. QLD and NSW: 
-        These states typically experience better climatic conditions for livestock in March, 
-        as it falls toward the end of summer in Australia.
-        While VIC also has good pasture, it has more distinct seasonal variations. 
-        March is often a transitional month between the end of summer and the start of autumn, which can affect the quality and availability of feed.
-    </p>
-
-    <div id="meatheat"></div> <!-- heat chart -->
-    
-
-    <h2 class="header">Top Trading States</h2>
-    <p class="paragraph-1">In Australia, the top trading states are typically determined by the states' population, industries, resources, 
-        and geographic positioning. A large state like NSW has a diverse economy allowing it to facilite many categories
-        of trade whilst requiring a large amount of imports in order to maintain its economy. In Contrast, SA has a lower
-        lower manufacturing rate and smaller population, resulting in a smaller rate of trade. 
-    </p>
-    <p class="paragraph-2">A massive dip in trade for both imports and exports can be observed when the COVID-19 pandemic hit in early 2020,
-        which significantly disrupted global trade.After the initial disruptions in 2020, Australia's trade has started to recover and even experience a boom,
-        driven by global demand for Australia's commodities, particularly iron ore, coal, gold, and agriculture products, 
-        increased as countries like China and other developing nations resumed or expanded industrial activities. to maintain this boom a large amount of imports
-        for fuel and technological resources also increased.
-    </p>
-    <div class="chart-container">
-        <div id="bar"></div>  <!-- Existing bar chart -->
-        <div id="importchart"></div> <!-- New import chart -->
-    </div>
-
-    <h2 class="header"> References</h2>
-    <p class="paragraph-1">https://www.abs.gov.au/statistics/economy/international-trade/international-trade-supplementary-information-calendar-year/latest-release
-        https://wits.worldbank.org/CountryProfile/en/Country/AUS/Year/2021/TradeFlow/EXPIMP/Partner/by-country
-        https://www.abs.gov.au/statistics/economy/international-trade/international-trade-supplementary-information-calendar-year/latest-release#detailed-exports-of-services
-        https://www.abs.gov.au/articles/insights-australian-exports-meat#country-breakdown
-    </p>
-    <script>
-        // Function to handle intersection of headers and paragraphs
-        function observeHeadersAndParagraphs() {
-            const headers = document.querySelectorAll('.header');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Animate the header
-                        entry.target.classList.add('animate');
-
-                        // Get the first paragraph and animate it with a delay
-                        const firstParagraph = entry.target.nextElementSibling;
-                        if (firstParagraph && firstParagraph.classList.contains('paragraph-1')) {
-                            setTimeout(() => {
-                                firstParagraph.classList.add('animate');
-                            }, 1000); // 1-second delay after header animation
-                        }
-
-                        // Get the second paragraph and animate it with an additional delay
-                        const secondParagraph = firstParagraph ? firstParagraph.nextElementSibling : null;
-                        if (secondParagraph && secondParagraph.classList.contains('paragraph-2')) {
-                            setTimeout(() => {
-                                secondParagraph.classList.add('animate');
-                            }, 2000); // 1-second delay after the first paragraph animation (2 seconds total)
-                        }
-                    }
-                });
-            });
-
-            headers.forEach(header => {
-                observer.observe(header);
-            });
-        }
-
-        // Start observing headers and paragraphs once the page loads
-        window.addEventListener('DOMContentLoaded', observeHeadersAndParagraphs);
-    </script>
-</body>
-</html>
-
 
     <script>
-        // Choropleth map for Australia Exports
-        const mapSpecExports = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "title": "Australia Exports",
-            "width": 800,
-            "height": 400,
-            "background": "#e0f2fb",
-            "projection": {"type": "equalEarth"},
-            "layer":[
-                {
-            "data": {
-        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
-        "format": {"type": "topojson", "feature": "oceans"}
-      },
-      "mark": {"type": "geoshape", "fill": "skyblue"},
-    },
-    {
-      "data": {
-        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/2_symbol_map/js/WorldMapWithGraticules.topojson",
-        "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
-      },
-      "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"},
-    },
-    {
+        // Demo garment data with size measurements in centimeters
+        const demo_garment = {
+            name: "DEMO DRESS",
+            // Possible values for product_type:
+            // "TROUSERS", "DRESS", "BERMUDA", "LEGGINGS", "SKIRT", 
+            // "TOPS AND OTHERS", "BLAZER", "WAISTCOAT", "SHIRT", "T-SHIRT"
+            product_type: "DRESS",
+            gender: "w", // Possible values for gender: "m" (men) or "w" (women)
+            sizes: [{
+                name: "XS",
+                chest: 90,
+                waist: 70,
+                buttock: 94,
+                length: 95
+            }, {
+                name: "S", 
+                chest: 96,
+                waist: 76,
+                buttock: 100,
+                length: 96
+            }, {
+                name: "M",
+                chest: 102,
+                waist: 82,
+                buttock: 106,
+                length: 97
+            }, {
+                name: "L",
+                chest: 108,
+                waist: 88,
+                buttock: 112,
+                length: 98
+            }, {
+                name: "XL",
+                chest: 114,
+                waist: 94,
+                buttock: 118,
+                length: 99
+            }]
+        };
+        let itemBodySelection;
+
+        /**
+         * Optional: Custom fit calculation function that determines how well each size fits
+         * Overrides the default WEARFITS fit calculation
+         */
+         async function customFitFunc() {
+    // Get current garment properties and selected size
+    const properties = wearfits.garmentProp[wearfits.current_garment_name];
+    const selectedSize = wearfits.current_garment_size;
+    const measurements = properties.custom.measurement[selectedSize];
     
-            "data": {
-                "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
-                "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
-            },
-            "transform": [
-                {
-                    "lookup": "properties.NAME",
-                    "from": {
-                        "data": {
-                            "url": "https://raw.githubusercontent.com/ZebGirum/fit3179data/main/WITS-Partner.csv"
-                        },
-                        "key": "Partner Name",
-                        "fields": ["Export (US$ Thousand)"]
-                    },
-                    "as": ["Export (US$ Thousand)"],
-                    "default": 0
-                },
-                {
-                    "calculate": "datum['Export (US$ Thousand)']",
-                    "as": "Original Export Value"
-                },
-                {
-                    "calculate": "datum['Original Export Value'] + 0.1",
-                    "as": "Non Export Value"
-                },
-                {
-                    "calculate": "isValid(datum['Original Export Value']) ? datum['Original Export Value'] : datum['Non Export Value']",
-                    "as": "Export (US$ Thousand)"
-                }
-            ],
-            "mark": {"type": "geoshape","stroke": "white"},
-            "encoding": {
-                "color": {
-                    "field": "Export (US$ Thousand)",
-                    "type": "quantitative",
-                    "scale": {"type": "log"}
-                },
-                "tooltip": [
-                    {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-                    {"field": "Export (US$ Thousand)", "type": "quantitative"}
-                ]
-            }
-        }
-    ]
-        };
-
-        const mapSpecImports = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "title": "Australia Imports",
-            "width": 800,
-            "height": 400,
-            "background": "#e0f2fb",
-            "projection": {"type": "equalEarth"},
-            "layer":[
-                {
-            "data": {
-        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
-        "format": {"type": "topojson", "feature": "oceans"}
-      },
-      "mark": {"type": "geoshape", "fill": "skyblue"},
-    },
-    {
-      "data": {
-        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/2_symbol_map/js/WorldMapWithGraticules.topojson",
-        "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
-      },
-      "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"},
-    },
-    {
-    
-            "data": {
-                "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
-                "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
-            },
-            "transform": [
-                {
-                    "lookup": "properties.NAME",
-                    "from": {
-                        "data": {
-                            "url": "https://raw.githubusercontent.com/ZebGirum/fit3179data/main/WITS-Partner.csv"
-                        },
-                        "key": "Partner Name",
-                        "fields": ["Import (US$ Thousand)"]
-                    },
-                    "as": ["Import (US$ Thousand)"],
-                    "default": 0
-                },
-                {
-                    "calculate": "datum['Import (US$ Thousand)']",
-                    "as": "Original Import Value"
-                },
-                {
-                    "calculate": "datum['Original Import Value'] + 0.1",
-                    "as": "Non Import Value"
-                },
-                {
-                    "calculate": "isValid(datum['Original Import Value']) ? datum['Original Import Value'] : datum['Non Import Value']",
-                    "as": "Import (US$ Thousand)"
-                }
-            ],
-            "mark": {"type": "geoshape","stroke": "white"},
-            "encoding": {
-                "color": {
-                    "field": "Import (US$ Thousand)",
-                    "type": "quantitative",
-                    "scale": {"type": "log"}
-                },
-                "tooltip": [
-                    {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-                    {"field": "Import (US$ Thousand)", "type": "quantitative"}
-                ]
-            }
-        }
-    ]
-        };
-
-        // Scatter plot for Imports, Exports and Tariffs
-        const scatterSpec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "width": 600,
-            "height": 400,
-            "background": "#e0f2fb",
-            "title": "Imports, Exports and Tariffs",
-            "data": {
-                "url": "https://raw.githubusercontent.com/ZebGirum/fit3179data/main/WITS-Partner_countriescsv.csv"
-            },
-            "params": [
-                {
-                    "name": "Continent_selection",
-                    "bind": {
-                        "input": "select",
-                        "options": [
-                            null,
-                            "North America",
-                            "South America",
-                            "Europe",
-                            "Africa",
-                            "Asia",
-                            "Oceania"
-                        ],
-                        "labels": [
-                            "Show All",
-                            "North America",
-                            "South America",
-                            "Europe",
-                            "Africa",
-                            "Asia",
-                            "Oceania"
-                        ],
-                        "name": "Continent Selection: "
-                    }
-                }
-            ],
-            "transform": [
-                {
-                    "filter": "Continent_selection == null || datum.continent == Continent_selection"
-                }
-            ],
-            "layer": [
-                {
-                    "mark": "circle",
-                    "encoding": {
-                        "x": {
-                            "field": "Export (US$ Thousand)",
-                            "type": "quantitative",
-                            "title": "Exports",
-                            "axis": {"tickCount": 7},
-                            "scale": {"type": "log", "domain": [1, 1000000000]}
-                        },
-                        "y": {
-                            "field": "Import (US$ Thousand)",
-                            "type": "quantitative",
-                            "title": "Imports",
-                            "axis": {"tickCount": 7},
-                            "scale": {"type": "log", "domain": [1, 1000000000]}
-                        },
-                        "color": {
-                            "field": "continent",
-                            "type": "nominal",
-                            "scale": {
-                                "domain": [
-                                    "North America",
-                                    "South America",
-                                    "Europe",
-                                    "Africa",
-                                    "Asia",
-                                    "Oceania"
-                                ],
-                                "range": [
-                                    "#e41a1c",
-                                    "#984ea3",
-                                    "#ff7f00",
-                                    "#a6cee3",
-                                    "#377eb8",
-                                    "#a65628"
-                                ]
-                            }
-                        },
-                        "opacity": { "value": 0.5 },
-                        "size": {
-                            "field": "AHS Total Tariff Lines",
-                            "type": "quantitative",
-                            "scale": {
-                                "type": "threshold",
-                                "domain": [100, 1000, 5000, 10000, 50000],
-                                "range": [10, 50, 150, 200, 300, 400]
-                            },
-                            "legend": {"format": ".1s"}
-                        },
-                        "tooltip": [
-                            {"field": "Partner Name", "type": "nominal"},
-                            {"field": "Export (US$ Thousand)", "type": "quantitative", "format": ","},
-                            {"field": "Import (US$ Thousand)", "type": "quantitative", "format": ","},
-                            {"field": "AHS Total Tariff Lines", "type": "quantitative", "format": ","},
-                            {"field": "continent", "type": "nominal"}
-                        ]
-                    }
-                },
-                {
-                    "mark": {
-                        "type": "text",
-                        "align": "right",
-                        "baseline": "middle",
-                        "dx": -12,
-                        "fontSize": 11.5,
-                        "fontStyle": "italic"
-                    },
-                    "encoding": {
-                        "text": {"field": "Partner Name", "type": "nominal"},
-                        "color": {"value": "black"},
-                        "opacity": {
-                            "condition": {
-                                "test": "datum['Partner Name'] == 'China' || datum['Partner Name'] == 'South Africa' || datum['Partner Name'] == 'New Zealand' || datum['Partner Name'] == 'Germany' || datum['Partner Name'] == 'Brazil' || datum['Partner Name'] == 'United States of America'",
-                                "value": 1
-                            },
-                            "value": 0
-                        },
-                        "x": {
-                            "field": "Export (US$ Thousand)",
-                            "type": "quantitative"
-                        },
-                        "y": {
-                            "field": "Import (US$ Thousand)",
-                            "type": "quantitative"
-                        }
-                    }
-                }
-            ]
-        };
-
-        // Line chart
-        const lineSpec = {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 876,
-    "height": 400,
-    "background": "#e0f2fb",
-    "data": {
-      "url": "https://raw.githubusercontent.com/ZebGirum/fit3179data/main/Balance_on_trade_in_services.csv"
-    },
-    "layer": [
-      {
-        "mark": {"type": "line", "tooltip": true}, 
-        "encoding": {
-          "x": {
-            "field": "Year",
-            "type": "temporal",
-            "axis": {
-              "grid": false,
-              "tickCount": "year"  
-            }
-          },
-          "y": {
-            "field": "Balance",
-            "type": "quantitative",
+    // Calculate fit differences for chest, waist, and buttock
+    // Positive diff = loose fit, Negative diff = tight fit
+    ['chest', 'waist', 'buttock'].forEach(prop => {
+        if (measurements[prop]) {
+            const diff = measurements[prop] - wearfits.userParams[prop];
             
-            "axis": {
-              "grid": true
+            // Determine fit category based on measurement difference
+            // Within 2cm = good fit, >2cm = loose, <-2cm = tight
+            let fitText;
+            if (Math.abs(diff) <= 2) {
+                fitText = "FIT";
+            } else if (diff > 2) {
+                fitText = "LOOSE";
+            } else {
+                fitText = "TIGHT";
             }
-          },
-          "tooltip": [
-            {"field": "Year", "type": "temporal", "title": "Year"},
-            {"field": "Balance", "type": "quantitative", "title": "Balance ($m)"}
-          ]
+
+            // Override default fit display text and difference values
+            wearfits.measurements[prop].override_text = fitText + " (" + measurements[prop] + " cm)";
+            wearfits.measurements[prop].override_diff = diff;
         }
-      },
-      {
-        "mark": "rule",
-        "encoding": {
-          "y": {"value": 150},  
-          "color": {"value": "red"},  
-          "size": {"value": 0.1}  
-        }
-      }
-    ]
-  };
+    });
 
-        // Area chart for Trade Balance
-        const exportAreaSpec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "width": 500,
-            "height": 400,
-            "background": "#e0f2fb",
-            "data": {"url": "https://raw.githubusercontent.com/ZebGirum/fit3179data/main/transformed-data.csv"},
-            "mark": "area",
-            "encoding": {
-                "x": {"timeUnit": "year", "field": "year", "axis": {"format": "%Y"}},
-                "y": {"aggregate": "sum", "field": "value"},
-                "color": {"field": "Row Labels", "scale": {"scheme": "category20b"}},
-                "tooltip": [
-                    {"field": "Row Labels", "type": "nominal", "title": "Category"},
-                    {"field": "year", "type": "temporal", "title": "Year"},
-                    {"field": "value", "type": "quantitative", "title": "Value ($m)"}
-                ]
-            }
-        };
+    // Update height and weight inputs
+    const heightInput = document.getElementById("wearfits_avatar_fake_height");
+    const weightInput = document.getElementById("wearfits_avatar_fake_weight");
 
-        // Area chart for Imports
-        const importAreaSpec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "width": 500,
-            "height": 400,
-            "background": "#e0f2fb",
-            "data": {"url": "https://raw.githubusercontent.com/ZebGirum/fit3179data/main/top15categoriesimports.csv"},
-            "mark": "area",
-            "encoding": {
-                "x": {"timeUnit": "year", "field": "year", "axis": {"format": "%Y"}},
-                "y": {"aggregate": "sum", "field": "value"},
-                "color": {"field": "Products", "scale": {"scheme": "category20b"}},
-                "tooltip": [
-                    {"field": "Products", "type": "nominal", "title": "Category"},
-                    {"field": "year", "type": "temporal", "title": "Year"},
-                    {"field": "value", "type": "quantitative", "title": "Value ($m)"}
-                ]
-            }
-        };
+    if (heightInput && weightInput) {
+        // Assuming you want to set height to a specific value (e.g., from the measurements)
+        heightInput.value = measurements.height || 150; // Default to 165 if no height found in measurements
+        heightInput.dispatchEvent(new Event('input')); // Trigger input event to update slider
 
-
-        const meatdonutspec =  {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A donut chart showing data filtered by Month-Year using a dropdown menu.",
-  "width": 500,
-  "height": 400,
-  "background": "#e0f2fb",
-  "data": {
-    "url": "https://raw.githubusercontent.com/ZebGirum/fit3179data/main/meat_exports_topcountries.csv"
-  },
-  "mark": {"type": "arc", "innerRadius": 50},
-  "encoding": {
-    "theta": {
-      "field": "value",
-      "type": "quantitative"
-    },
-    "color": {
-      "field": "Countries",
-      "type": "nominal"
-    },
-    "tooltip": [
-      {
-        "field": "Countries",
-        "type": "nominal",
-        "title": "Country"
-      },
-      {
-        "field": "value",
-        "type": "quantitative",
-        "title": "Export Value",
-        "format": ".2f"
-      }
-    ]
-  },
-  "params": [
-    {
-      "name": "MonthYear_Slider",
-      "value": "Apr-14",
-      "bind": {
-        "input": "select",
-        "options": [
-          "Apr-14", "May-14", "Jun-14", "Jul-14", "Aug-14", "Sep-14", "Oct-14", "Nov-14", "Dec-14",
-          "Jan-15", "Feb-15", "Mar-15", "Apr-15", "May-15", "Jun-15", "Jul-15", "Aug-15", "Sep-15",
-          "Oct-15", "Nov-15", "Dec-15", "Jan-16", "Feb-16", "Mar-16", "Apr-16", "May-16", "Jun-16",
-          "Jul-16", "Aug-16", "Sep-16", "Oct-16", "Nov-16", "Dec-16", "Jan-17", "Feb-17", "Mar-17",
-          "Apr-17", "May-17", "Jun-17", "Jul-17", "Aug-17", "Sep-17", "Oct-17", "Nov-17", "Dec-17",
-          "Jan-18", "Feb-18", "Mar-18", "Apr-18", "May-18", "Jun-18", "Jul-18", "Aug-18", "Sep-18",
-          "Oct-18", "Nov-18", "Dec-18", "Jan-19", "Feb-19", "Mar-19", "Apr-19", "May-19", "Jun-19",
-          "Jul-19", "Aug-19", "Sep-19", "Oct-19", "Nov-19", "Dec-19", "Jan-20", "Feb-20", "Mar-20",
-          "Apr-20", "May-20", "Jun-20", "Jul-20", "Aug-20", "Sep-20", "Oct-20", "Nov-20", "Dec-20",
-          "Jan-21", "Feb-21", "Mar-21", "Apr-21", "May-21", "Jun-21", "Jul-21", "Aug-21", "Sep-21",
-          "Oct-21", "Nov-21", "Dec-21", "Jan-22", "Feb-22", "Mar-22", "Apr-22", "May-22", "Jun-22",
-          "Jul-22", "Aug-22", "Sep-22", "Oct-22", "Nov-22", "Dec-22", "Jan-23", "Feb-23", "Mar-23",
-          "Apr-23", "May-23", "Jun-23", "Jul-23", "Aug-23", "Sep-23", "Oct-23", "Nov-23", "Dec-23",
-          "Jan-24", "Feb-24", "Mar-24", "Apr-24"
-        ],
-        "name": "Select Month-Year: "
-      }
+        // Similarly for weight
+        weightInput.value = measurements.weight || 120; // Default to 55 if no weight found in measurements
+        weightInput.dispatchEvent(new Event('input')); // Trigger input event to update slider
     }
-  ],
-  "transform": [
-    {
-      "filter": "datum['Month-Year'] == MonthYear_Slider || MonthYear_Slider == null"
+
+    // Update UI with fit recommendations
+    const preferredSize = wearfits.getPreferedSize();
+    const fitTypeText = document.getElementById("fit_type_text");
+    if (fitTypeText) {
+        fitTypeText.innerHTML = "How the Garment Fits Your Size";
+        
+        // Add size recommendation if current size isn't optimal
+        if (preferredSize === selectedSize) {
+            fitTypeText.innerHTML += "<br><small style='color: green'>This is your recommended size</small>";
+        } else {
+            fitTypeText.innerHTML += "<br><small>Size " + preferredSize + " might fit you better</small>";
+        }
     }
-  ]
-};
-  
-  const meatStateHeatspec ={
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 500,
-    "height": 400,
-    "background": "#e0f2fb",
-    "data": {
-      "url": "https://raw.githubusercontent.com/ZebGirum/fit3179data/main/bovine_sheep_heatmap_state.csv"
-    },
-    "title": "Exports of bovine and sheep for select states",
-    "params": [
-      {
-        "name": "state_selection",
-        "bind": {
-          "input": "select",
-          "options": [
-            null,
-            "New South Wales (Kg (Millions)",
-            "Victoria (Kg (Millions)",
-            "Queensland (Kg (Millions)"
-          ],
-          "labels": [
-            "Show All",
-            "New South Wales",
-            "Victoria",
-            "Queensland"
-          ],
-          "name": "State Selection: "
-        }
-      }
-    ],
-    "transform": [
-      {
-        "filter": "state_selection == null || datum.States == state_selection"
-      }
-    ],
-    "config": {
-      "view": {
-        "strokeWidth": 0,
-        "step": 13
-      },
-      "axis": {
-        "domain": false
-      }
-    },
-    "mark": "rect",
-    "encoding": {
-      "y": {
-        "field": "States",
-        "type": "nominal",
-        "title": "State"
-      },
-      "x": {
-        "field": "Month",
-        "type": "ordinal",
-        "title": "Month",
-        "sort": [
-          "January", "February", "March", "April", "may", "June",
-          "July", "August", "September", "October", "November", "December"
-        ]
-      },
-      "color": {
-        "field": "value",
-        "type": "quantitative",
-        "legend": {
-          "title": null
-        }
-      },
-      "tooltip": [
-        {
-          "field": "States",
-          "type": "nominal",
-          "title": "State"
-        },
-        {
-          "field": "Month",
-          "type": "ordinal",
-          "title": "Month"
-        },
-        {
-          "field": "value",
-          "type": "quantitative",
-          "title": "kg(in millions)"
-        }
-      ]
+
+    // Hide mode selection UI element
+    if (itemBodySelection) {
+        itemBodySelection.style.display = "none";
     }
-  };
-  
-  
-        // Bar chart for Trade by Year
-        const barSpec = {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 300,
-  "height": 200,
-  "background": "#e0f2fb",
-  "data": {"url": "https://raw.githubusercontent.com/ZebGirum/fit3179data/main/transformed_state_exports_data.csv"},
-  "mark": "bar",
-  "encoding": {
-    "x": {"aggregate": "sum", "field": "value"},
-    "y": {"field": "Year"},
-    "color": {"field": "State"},
-    "tooltip": [
-            {"field": "State", "type": "nominal", "title": "State"},
-            {"field": "value", "type": "quantitative", "title": "Value"}
-          ]
-  },
-  
-};
+}
 
-const importStateSpec = {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 300,
-  "height": 200,
-  "background": "#e0f2fb",
-  "data": {"url": "https://raw.githubusercontent.com/ZebGirum/fit3179data/main/transformed_state_imports_data.csv"},
-  "mark": "bar",
-  "encoding": {
-    "x": {"aggregate": "sum", "field": "value"},
-    "y": {"field": "Year"},
-    "color": {"field": "State"},
-    "tooltip": [
-            {"field": "State", "type": "nominal", "title": "State"},
-            {"field": "value", "type": "quantitative", "title": "Value"}
-          ]
-  },
-  
-};
-        vegaEmbed('#vis', mapSpecExports);
-        vegaEmbed('#scatter', scatterSpec);
-        vegaEmbed('#line', lineSpec);
-        vegaEmbed('#area', exportAreaSpec);
-        vegaEmbed('#bar', barSpec);
-        vegaEmbed('#importchart', importStateSpec);
-        vegaEmbed('#meatdonut', meatdonutspec); 
-        vegaEmbed('#meatheat', meatStateHeatspec); 
+        async function onDocumentLoad() {
+            // Configure virtual advisor settings
+            wearfits_va.use_outline = true;
+            wearfits_va.custom_fit_func = customFitFunc;
+            wearfits_va.default_mode_ratio = 1.5;
+            
+            // Initialize advisor UI
+            wearfits_va.append("advisor_container");
+            await wearfits_va.set_up_garment_by_prop(demo_garment);
+            await wearfits_va.set_visualization();
 
-  // Function to handle chart switching
-  document.getElementById('trade-toggle').addEventListener('change', function(event) {
-            const selectedValue = event.target.value;
-
-            if (selectedValue === 'export') {
-                vegaEmbed('#area', exportAreaSpec);
-            } else if (selectedValue === 'import') {
-                vegaEmbed('#area', importAreaSpec);
+            // Hide mode selection UI element
+            itemBodySelection = document.getElementById("item_body_selection");
+            if (itemBodySelection) {
+                 itemBodySelection.style.display = "none";
             }
-        });
+        }
 
-
-        document.getElementById('world-toggle').addEventListener('change', function(event) {
-            const selectedValue = event.target.value;
-
-            if (selectedValue === 'export') {
-                vegaEmbed('#vis', mapSpecExports);
-            } else if (selectedValue === 'import') {
-                vegaEmbed('#vis', mapSpecImports);
-            }
-        });
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', onDocumentLoad);
     </script>
+</head>
+
+<body>
+    <div id="advisor_container"></div>
 </body>
-</html>
+</html> 
